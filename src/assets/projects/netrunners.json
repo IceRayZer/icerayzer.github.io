@@ -1,0 +1,7 @@
+{
+  "name": "NetRunners",
+  "type": "games",
+  "engine": "unity",
+  "tags": ["solo-project"],
+  "thumbnail": "netrunners.png"
+}

@@ -1,0 +1,34 @@
+{
+  "language": "Français",
+
+  "page.about-me": "À propos",
+  "page.social-medias": "Réseaux sociaux",
+  "page.contacts": "Contacts",
+
+  "projects.search.placeholder": "Rechercher des projets...",
+  "projects.showmore": "Voir plus",
+
+  "editor.preview": "Aperçu",
+  "editor.edit": "Modifier",
+  "editor.export": "Export",
+  "editor.import": "Import",
+
+  "project.name": "Nom",
+  "project.type": "Type",
+  "project.engine": "Moteur",
+  "project.tags": "Étiquettes",
+  "project.thumbnail": "Miniature",
+  "project.summary": "Résumé",
+
+  "social-medias.artstation": "Modélisations 3D",
+  "social-medias.itchio": "Projets de Gamejams",
+
+  "type.games": "Jeux",
+  "type.level-design": "Level Design",
+
+  "engine.all": "Tous",
+  "engine.others": "Autres",
+
+  "tag.solo-project": "Projet individuel",
+  "tag.gamejam": "Gamejam"
+}

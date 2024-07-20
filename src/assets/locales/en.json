@@ -1,0 +1,34 @@
+{
+  "language": "English",
+
+  "page.about-me": "About me",
+  "page.social-medias": "Social medias",
+  "page.contacts": "Contacts",
+
+  "projects.search.placeholder": "Search projects...",
+  "projects.showmore": "Show more",
+
+  "editor.preview": "Preview",
+  "editor.edit": "Edit",
+  "editor.export": "Export",
+  "editor.import": "Import",
+
+  "project.name": "Name",
+  "project.type": "Type",
+  "project.engine": "Engine",
+  "project.tags": "Tags",
+  "project.thumbnail": "Thumbnail",
+  "project.summary": "Summary",
+
+  "social-medias.artstation": "3D Modelisation",
+  "social-medias.itchio": "Gamejams Projects",
+
+  "type.games": "Games",
+  "type.level-design": "Level Design",
+
+  "engine.all": "All",
+  "engine.others": "Others",
+
+  "tag.solo-project": "Solo project",
+  "tag.gamejam": "Gamejam"
+}

@@ -1,0 +1,38 @@
+{
+  "types": ["games", "level-design"],
+  "engines": [
+    {
+      "id": "unity",
+      "name": "Unity"
+    },
+    {
+      "id": "unreal-engine",
+      "name": "Unreal Engine"
+    }
+  ],
+  "others-engines": [
+    {
+      "id": "construct2",
+      "name": "Construct 2"
+    }
+  ],
+  "tags": ["solo-project", "gamejam"],
+  "about-me": "<p>a propos</p>",
+  "social-medias": [
+    {
+      "id": "linkedin",
+      "name": "LinkedIn",
+      "url": "https://www.linkedin.com/in/eden-guedj-a01945229"
+    },
+    {
+      "id": "artstation",
+      "name": "ArtStation",
+      "url": "https://icerayzer1.artstation.com"
+    },
+    {
+      "id": "itchio",
+      "name": "itch.io",
+      "url": "https://itch.io/profile/icerayzer"
+    }
+  ]
+}
