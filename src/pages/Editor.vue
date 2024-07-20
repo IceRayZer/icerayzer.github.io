@@ -160,11 +160,13 @@ function switchTag(tag: string) {
           <input v-model="project.summary" type="text" />
         </label>
         <div class="text-editor">
-          <QuillyEditor
-            ref="editor"
-            v-model="project.article"
-            :options="options"
-          />
+          <ClientOnly>
+            <QuillyEditor
+              ref="editor"
+              v-model="project.article"
+              :options="options"
+            />
+          </ClientOnly>
         </div>
       </div>
     </div>
