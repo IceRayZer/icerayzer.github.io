@@ -9,7 +9,7 @@
   "dependencies": {
     "@unhead/vue": "^1.9.16",
     "quill": "^2.0.2",
-    "vue": "^3.4.31",
+    "vue": "^3.4.33",
     "vue-i18n": "^9.13.1",
     "vue-quilly": "^1.0.5"
   },
@@ -20,8 +20,8 @@
     "less": "^4.2.0",
     "pinia": "^2.1.7",
     "typescript": "^5.5.3",
-    "unplugin-vue-components": "^0.27.2",
-    "vite": "^5.3.3",
+    "unplugin-vue-components": "^0.27.3",
+    "vite": "^5.3.4",
     "vite-plugin-pages": "^0.32.3",
     "vite-ssg": "^0.23.8",
     "vite-svg-loader": "^5.1.0",

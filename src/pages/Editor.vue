@@ -1,38 +1,13 @@
 <script setup lang="ts">
-import Quill from "quill";
 import "quill/dist/quill.snow.css";
-import { nextTick, onMounted, ref, toRaw } from "vue";
-import { QuillyEditor } from "vue-quilly";
+import { ref, toRaw } from "vue";
 import ProjectCard from "../components/ProjectCard.vue";
+import TextEditor from "../components/TextEditor.vue";
 import { data } from "../constants";
 import { Project } from "../models";
 import { getProjetId, mapToProject } from "../utils";
 
 const allEngines = [...data.engines, ...data["others-engines"]];
-
-const editor = ref<InstanceType<typeof QuillyEditor>>();
-const options = ref({
-  theme: "snow",
-  toolbar: "full",
-  modules: {
-    toolbar: [
-      [{ font: [] }, { size: [] }],
-      ["bold", "italic", "underline", "strike"],
-      [{ color: [] }, { background: [] }],
-      [{ script: "super" }, { script: "sub" }],
-      [{ header: "1" }, { header: "2" }, "blockquote", "code-block"],
-      [
-        { list: "ordered" },
-        { list: "bullet" },
-        { indent: "-1" },
-        { indent: "+1" },
-      ],
-      ["direction", { align: [] }],
-      ["link", "image", "video", "formula"],
-      ["clean"],
-    ],
-  },
-});
 
 const project = ref<Project>({
   name: "",
@@ -42,12 +17,6 @@ const project = ref<Project>({
 });
 const edit = ref<boolean>(true);
 const importFile = ref<HTMLInputElement | null>(null);
-
-let quill: Quill | null = null;
-
-onMounted(() => {
-  quill = editor.value?.initialize(Quill) ?? null;
-});
 
 function importProject() {
   importFile.value?.click();
@@ -89,11 +58,11 @@ function exportProject() {
 
 function switchPreview() {
   edit.value = !edit.value;
-  if (!edit.value) quill = null;
+  // if (!edit.value) quill = null;
 
-  nextTick(() => {
-    quill ??= editor.value?.initialize(Quill) ?? null;
-  });
+  // nextTick(() => {
+  //   quill ??= editor.value?.initialize(Quill) ?? null;
+  // });
 }
 
 function switchTag(tag: string) {
@@ -147,7 +116,7 @@ function switchTag(tag: string) {
               :key="engine.id"
               :value="engine.id"
             >
-              {{ $t(`engine.${engine}`) }}
+              {{ engine.name }}
             </option>
           </select>
         </label>
@@ -160,13 +129,9 @@ function switchTag(tag: string) {
           <input v-model="project.summary" type="text" />
         </label>
         <div class="text-editor">
-          <ClientOnly>
-            <QuillyEditor
-              ref="editor"
-              v-model="project.article"
-              :options="options"
-            />
-          </ClientOnly>
+          <client-only>
+            <TextEditor v-model="project.article" />
+          </client-only>
         </div>
       </div>
     </div>

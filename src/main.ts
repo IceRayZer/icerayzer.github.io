@@ -49,6 +49,5 @@ async function loadLanguages (): Promise<Record<string, Record<string, string>>>
     const lang = langKey.match(/([^/]+)\.json$/)?.[1] ?? ''
     languages[lang] = ((await languagesImports[langKey]()) as {default: Record<string, string>}).default
   }
-  console.log(languages);
   return languages;
 }

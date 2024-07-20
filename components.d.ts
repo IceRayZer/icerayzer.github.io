@@ -8,15 +8,13 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     Article: typeof import('./src/components/Article.vue')['default']
-    Card: typeof import('./src/components/Card.vue')['default']
     Language: typeof import('./src/components/Language.vue')['default']
     Navbar: typeof import('./src/components/Navbar.vue')['default']
     ProjectCard: typeof import('./src/components/ProjectCard.vue')['default']
     ProjectList: typeof import('./src/components/ProjectList.vue')['default']
-    ProjectsList: typeof import('./src/components/ProjectList.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Sidebar: typeof import('./src/components/Sidebar.vue')['default']
-    Tag: typeof import('./src/components/Tag.vue')['default']
+    TextEditor: typeof import('./src/components/TextEditor.vue')['default']
   }
 }
