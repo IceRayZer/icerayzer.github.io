@@ -75,89 +75,89 @@ function switchTag(tag: string) {
 
 <template>
   <main>
-    <ProjectCard class="card" :project="project" />
-    <div class="page" v-if="edit">
-      <div class="content editor">
-        <label class="input-group">
-          <span>{{ $t("project.name") }}</span>
-          <input v-model="project.name" type="text" />
-        </label>
-        <label class="input-group">
-          <span>{{ $t("project.type") }}</span>
-          <select v-model="project.type">
-            <option v-for="t in data.types" :key="t" :value="t">
-              {{ $t(`type.${t}`) }}
-            </option>
-          </select>
-        </label>
-        <div class="input-group">
-          <span>{{ $t("project.tags") }}</span>
-          <div class="tags">
-            <span
-              class="tag"
-              :class="{ unchecked: !project.tags?.includes(tag) }"
-              v-for="tag in data.tags"
-              :key="tag"
-              :title="$t(`tag.${tag}`)"
-              @click="() => switchTag(tag)"
-              >{{ $t(`tag.${tag}`) }}</span
-            >
+    <ClientOnly>
+      <ProjectCard class="card" :project="project" />
+      <div class="page" v-if="edit">
+        <div class="content editor">
+          <label class="input-group">
+            <span>{{ $t("project.name") }}</span>
+            <input v-model="project.name" type="text" />
+          </label>
+          <label class="input-group">
+            <span>{{ $t("project.type") }}</span>
+            <select v-model="project.type">
+              <option v-for="t in data.types" :key="t" :value="t">
+                {{ $t(`type.${t}`) }}
+              </option>
+            </select>
+          </label>
+          <div class="input-group">
+            <span>{{ $t("project.tags") }}</span>
+            <div class="tags">
+              <span
+                class="tag"
+                :class="{ unchecked: !project.tags?.includes(tag) }"
+                v-for="tag in data.tags"
+                :key="tag"
+                :title="$t(`tag.${tag}`)"
+                @click="() => switchTag(tag)"
+                >{{ $t(`tag.${tag}`) }}</span
+              >
+            </div>
+          </div>
+          <label class="input-group">
+            <span>{{ $t("project.engine") }}</span>
+            <select v-model="project.engine">
+              <option
+                v-for="engine in allEngines"
+                :key="engine.id"
+                :value="engine.id"
+              >
+                {{ engine.name }}
+              </option>
+            </select>
+          </label>
+          <label class="input-group">
+            <span>{{ $t("project.thumbnail") }}</span>
+            <input v-model="project.thumbnail" type="text" />
+          </label>
+          <label class="input-group">
+            <span>{{ $t("project.summary") }}</span>
+            <input v-model="project.summary" type="text" />
+          </label>
+          <div class="text-editor">
+            <TextEditor v-model="project.article" />
           </div>
         </div>
-        <label class="input-group">
-          <span>{{ $t("project.engine") }}</span>
-          <select v-model="project.engine">
-            <option
-              v-for="engine in allEngines"
-              :key="engine.id"
-              :value="engine.id"
-            >
-              {{ engine.name }}
-            </option>
-          </select>
-        </label>
-        <label class="input-group">
-          <span>{{ $t("project.thumbnail") }}</span>
-          <input v-model="project.thumbnail" type="text" />
-        </label>
-        <label class="input-group">
-          <span>{{ $t("project.summary") }}</span>
-          <input v-model="project.summary" type="text" />
-        </label>
-        <div class="text-editor">
-          <client-only>
-            <TextEditor v-model="project.article" />
-          </client-only>
-        </div>
       </div>
-    </div>
-    <Article
-      v-else
-      :title="project?.name ?? ''"
-      :article="project?.article ?? ''"
-      :engine="project?.engine"
-      :tags="project?.tags"
-    />
-    <div class="actions">
-      <button class="primary" type="button" @click="switchPreview">
-        {{ edit ? $t("editor.preview") : $t("editor.edit") }}
-      </button>
-      <button class="primary" type="button" @click="importProject">
-        {{ $t("editor.import") }}
-      </button>
-      <button class="primary" type="button" @click="exportProject">
-        {{ $t("editor.export") }}
-      </button>
-    </div>
-    <div class="hidden">
-      <input
-        ref="importFile"
-        type="file"
-        accept="application/json"
-        @change="onImportFile"
+      <Article
+        v-else
+        :title="project?.name ?? ''"
+        :article="project?.article ?? ''"
+        :engine="project?.engine"
+        :tags="project?.tags"
       />
-      <a ref="exportButton"></a>
-    </div>
+      <div class="actions">
+        <button class="primary" type="button" @click="switchPreview">
+          {{ edit ? $t("editor.preview") : $t("editor.edit") }}
+        </button>
+        <button class="primary" type="button" @click="importProject">
+          {{ $t("editor.import") }}
+        </button>
+        <button class="primary" type="button" @click="exportProject">
+          {{ $t("editor.export") }}
+        </button>
+      </div>
+      <div class="hidden">
+        <input
+          ref="importFile"
+          type="file"
+          accept="application/json"
+          @change="onImportFile"
+        />
+        <a ref="exportButton"></a>
+      </div>
+    </ClientOnly>
   </main>
 </template>
 
