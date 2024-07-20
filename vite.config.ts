@@ -5,6 +5,9 @@ import Pages from 'vite-plugin-pages'
 import svgLoader from 'vite-svg-loader'
 
 const config: UserConfig = {
+  build: {
+    target: 'esnext'
+  },
   plugins: [
     Vue({
       include: [/\.vue$/],
