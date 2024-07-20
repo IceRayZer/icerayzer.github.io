@@ -17,6 +17,7 @@ const project = ref<Project>({
 });
 const edit = ref<boolean>(true);
 const importFile = ref<HTMLInputElement | null>(null);
+const exportButton = ref<HTMLAnchorElement | null>(null);
 
 function importProject() {
   importFile.value?.click();
@@ -41,28 +42,23 @@ function onImportFile() {
 }
 
 function exportProject() {
-  if (project.value == null) return;
+  if (project.value == null || exportButton.value == null) return;
 
   const proj: Project = mapToProject(structuredClone(toRaw(project.value)));
 
-  const a = document.createElement("a");
-  a.download = getProjetId(proj.name);
+  exportButton.value.download = getProjetId(proj.name);
   const url = URL.createObjectURL(
     new Blob([JSON.stringify(proj)], {
       type: "application/json",
     })
   );
-  a.href = url;
-  a.click();
+  exportButton.value.href = url;
+  exportButton.value.click();
+  URL.revokeObjectURL(url);
 }
 
 function switchPreview() {
   edit.value = !edit.value;
-  // if (!edit.value) quill = null;
-
-  // nextTick(() => {
-  //   quill ??= editor.value?.initialize(Quill) ?? null;
-  // });
 }
 
 function switchTag(tag: string) {
@@ -153,13 +149,15 @@ function switchTag(tag: string) {
         {{ $t("editor.export") }}
       </button>
     </div>
-    <input
-      id="import"
-      ref="importFile"
-      type="file"
-      accept="application/json"
-      @change="onImportFile"
-    />
+    <div class="hidden">
+      <input
+        ref="importFile"
+        type="file"
+        accept="application/json"
+        @change="onImportFile"
+      />
+      <a ref="exportButton"></a>
+    </div>
   </main>
 </template>
 
@@ -219,7 +217,7 @@ main {
   gap: 16px;
 }
 
-#import {
+.hidden {
   display: none;
 }
 </style>
