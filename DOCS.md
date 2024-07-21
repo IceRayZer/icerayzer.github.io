@@ -31,7 +31,9 @@ Types of projects appear in the navbar as categories of projects.
 
 To add a game engine, there are 2 steps:
 
-1. Add the game engine name, in lowercase and hyphens [-] instead of spaces [ ], in the `data.json`.
+1. Add an entry in the array `engines` for a main game engine, or `othes-engines` for secondary game engines, from the `data.json` with:
+   - id: the name of the game engine, in lowercase and hyphens [-] instead of spaces [ ]
+   - name: the name of the game engine
 2. Download the game engine logo, in white transparent as PNG and of resolution 128x128, and put it in `src/assets/engines/<GAME_ENGINE_ID>.png`.
 
 Games engines are located in the sidebar for projects list to filter projects.
