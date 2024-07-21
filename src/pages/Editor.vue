@@ -166,7 +166,6 @@ main {
 }
 
 .page {
-  padding: 64px 0;
   overflow: unset;
 }
 
