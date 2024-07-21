@@ -10,7 +10,7 @@ const route = useRoute();
 const store = useProjectsStore();
 
 const search = ref("");
-const mobile = ref(window.innerWidth <= 1280);
+const mobile = ref();
 const open = ref(false);
 
 watch(search, () => {
@@ -21,14 +21,18 @@ function toggleMenu() {
   open.value = !open.value;
 }
 
-window.addEventListener("resize", checkMobile);
+if (typeof window !== "undefined") {
+  window.addEventListener("resize", checkMobile);
 
-onBeforeUnmount(() => {
-  window.removeEventListener("resize", checkMobile);
-});
+  onBeforeUnmount(() => {
+    window.removeEventListener("resize", checkMobile);
+  });
 
-function checkMobile() {
-  mobile.value = window.innerWidth <= 1280;
+  function checkMobile() {
+    mobile.value = window.innerWidth <= 1280;
+  }
+
+  checkMobile();
 }
 </script>
 
