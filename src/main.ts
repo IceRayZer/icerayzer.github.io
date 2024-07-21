@@ -26,12 +26,6 @@ export const createApp = ViteSSG(App, {
   if (import.meta.env.SSR) initialState.pinia = pinia.state.value
   else pinia.state.value = initialState.pinia || {}
 
-  // Quill (text editor)
-  if (isClient) {
-    const VueQuilly = await import('vue-quilly')
-    app.component('QuillyEditor', VueQuilly.QuillyEditor)
-  }
-
   // Data initialization
   router.beforeEach(async (to, from, next) => {
     const store = useProjectsStore(pinia)

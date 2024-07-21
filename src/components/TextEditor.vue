@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import Quill from "quill";
 import { onMounted, ref } from "vue";
+import { QuillyEditor } from "vue-quilly";
 
 const modelValue = defineModel<string>();
 
@@ -28,9 +28,10 @@ const options = ref({
   },
 });
 
-let quill: Quill | null = null;
+let quill = null;
 
-onMounted(() => {
+onMounted(async () => {
+  const Quill = (await import("quill")).default;
   quill = editor.value?.initialize(Quill) ?? null;
 });
 </script>
