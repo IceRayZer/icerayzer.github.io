@@ -10,8 +10,8 @@ To note, all the files manipulations should be exclusively restricted to the `sr
 - [Type](#Types): projects types (games, level-design...)
 - [Engines](#Engines): games engines (unity, unreal-engine...)
 - [Tags](#Tags): projects custom tags (solo-project, gamejam...)
-- [About me](#About%20me): about me page content
-- [Social medias](#Social%20medias): your social medias
+- [About me](<#About me>): about me page content
+- [Social medias](<#Social medias>): your social medias
 
 Data are declared in `src/assets/data.json`.
 
@@ -44,7 +44,7 @@ Tags help describing and sorting projects.
 
 ### About me
 
-To edit the "about me" page, go to the [editor](#Project%20editor) and use only the text editor. Then export the data, open it and copy the content of `article`. Finally paste that content into `about-me` in the `data.json`.
+To edit the "about me" page, go to the [editor](<#Project editor>) and use only the text editor. Then export the data, open it and copy the content of `article`. Finally paste that content into `about-me` in the `data.json`.
 
 ### Social medias
 
