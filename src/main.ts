@@ -14,6 +14,7 @@ export const createApp = ViteSSG(App, {
   // Store
   const pinia = createPinia()
   app.use(pinia)
+  
   // Internationalization
   const languages = await loadLanguages()
   const i18n = createI18n({
@@ -37,7 +38,7 @@ export const createApp = ViteSSG(App, {
 })
 
 async function loadProjects (): Promise<Project[]> {
-  const projects = await Promise.all(Object.values(import.meta.glob('./assets/projects/*.json')).map(p => p())) as Project[]
+  const projects = await Promise.all(Object.values(import.meta.glob('./assets/projects/**/*.json')).map(p => p())) as Project[]
   return projects.map(mapToProject)
 }
 

@@ -4,8 +4,8 @@ import { ProjectType, type Project } from "../models";
 import {
   getEngineLogo,
   getEngineName,
+  getProjectThumbnail,
   getProjetId,
-  getThumbail,
 } from "../utils";
 
 interface ProjectCardProps {
@@ -25,7 +25,7 @@ const projectLocation = computed(() =>
     <img
       class="thumbnail"
       v-if="$props.project.thumbnail != null && $props.project.thumbnail != ''"
-      :src="getThumbail($props.project.thumbnail)"
+      :src="getProjectThumbnail($props.project)"
       :alt="$props.project.name"
     />
     <div class="gradient"></div>
@@ -54,7 +54,7 @@ const projectLocation = computed(() =>
       <div class="actions">
         <RouterLink
           class="showmore btn primary"
-          v-if="$props.project.article != null"
+          v-if="$props.project.article != null || true"
           :to="projectLocation"
           >{{ $t("projects.showmore") }}</RouterLink
         >

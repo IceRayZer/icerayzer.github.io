@@ -1,8 +1,8 @@
 import { data } from "./constants.js";
-import { Project } from "./models.js";
+import { type Project } from "./models.js";
 
 export function getProjetId(name: string): string {
-  return name.toLowerCase().replaceAll(" ", "-");
+  return name.toLowerCase().replace(" ", "-").replace(/'|`/g, "");
 }
 
 export function mapToProject(project: Project): Project {
@@ -29,13 +29,13 @@ export function getSocialMediaLogo(socialMedia: string) {
   return new URL(`./assets/social-medias/${socialMedia}.png`, import.meta.url).toString();
 }
 
-export function getThumbail(thumbnail: string) {
+export function getProjectThumbnail(project: Project) {
   let src = new URL(
-    `./assets/projects/${thumbnail}`,
+    `./assets/projects/${project.type}/${getProjetId(project.name)}/${project.thumbnail}`,
     import.meta.url
   ).toString();
   try {
-    src = new URL(thumbnail).toString();
+    src = new URL(project.thumbnail ?? '').toString();
   } catch {}
 
   return src;
