@@ -47,6 +47,8 @@ function isActive(engine: string) {
 
 aside {
   width: 96px;
+  height: 100%;
+  position: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;

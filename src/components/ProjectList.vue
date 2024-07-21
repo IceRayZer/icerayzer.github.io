@@ -23,12 +23,14 @@ defineProps<ProjectListProps>();
 
 <style scoped lang="less">
 .project-list {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: min-content;
   justify-content: space-around;
   gap: 64px;
   padding: 64px;
+  margin-left: 96px;
 }
 
 @media only screen and (max-width: 2560px) {

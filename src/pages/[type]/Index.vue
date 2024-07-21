@@ -40,8 +40,7 @@ useHead({
 main {
   height: 100%;
   position: relative;
+  display: flex;
   overflow-y: auto;
-  display: grid;
-  grid-template-columns: auto 1fr;
 }
 </style>
