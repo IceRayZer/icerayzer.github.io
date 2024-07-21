@@ -54,7 +54,7 @@ const projectLocation = computed(() =>
       <div class="actions">
         <RouterLink
           class="showmore btn primary"
-          v-if="$props.project.article != null || true"
+          v-if="$props.project.article != null"
           :to="projectLocation"
           >{{ $t("projects.showmore") }}</RouterLink
         >
