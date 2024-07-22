@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useHead } from "@unhead/vue";
+import { Meta, useHead } from "@unhead/vue";
 import "quill/dist/quill.snow.css";
 import { useI18n } from "vue-i18n";
 import { useRoute, useRouter } from "vue-router";
@@ -19,31 +19,35 @@ if (project == null) {
   router.replace("/404");
 }
 
+const projectMeta: Meta[] = [
+  {
+    property: "og:title",
+    content: project?.name,
+  },
+  {
+    property: "og:url",
+    content: location.href,
+  },
+];
+
+if (project?.summary != null) {
+  projectMeta.push({
+    property: "og:description",
+    content: project.summary,
+  });
+}
+
+if (project?.thumbnail != null) {
+  projectMeta.push({
+    property: "og:image",
+    content: getProjectThumbnail(project),
+  });
+}
+
 const { t } = useI18n();
 useHead({
   title: `${t(project?.name ?? "")} - IceRayZer Portfolio`,
-  meta: [
-    {
-      property: "description",
-      content: project?.summary,
-    },
-    {
-      property: "og:title",
-      content: project?.name,
-    },
-    {
-      property: "og:url",
-      content: location.href,
-    },
-    {
-      property: "og:description",
-      content: project?.summary,
-    },
-    {
-      property: "og:image",
-      content: project == null ? null : getProjectThumbnail(project),
-    },
-  ],
+  meta: projectMeta,
 });
 </script>
 
