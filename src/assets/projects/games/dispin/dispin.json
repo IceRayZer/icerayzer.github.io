@@ -1,8 +1,8 @@
 {
   "name": "Dispin",
   "type": "games",
-  "engine": "construct2",
+  "engine": "unity",
   "tags": ["gamejam"],
   "thumbnail": "https://imgur.com/NbWNqA4.gif",
-  "article": "gespgjedsgs"
+  "article": "CC CV"
 }
