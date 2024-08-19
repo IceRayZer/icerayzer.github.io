@@ -14,15 +14,18 @@
     {
       "id": "construct2",
       "name": "Construct 2",
-
+    },
+    {
       "id": "portal2",
       "name": "Portal 2",
-
+    },
+    {
       "id": "megamanmaker",
       "name": "MegamanMaker",
-
+    },
+    {
       "id": "tabletop-simulator",
-      "name": "Tabletop Simulator"
+      "name": "Tabletop Simulator",
     }
   ],
   "tags": ["solo-project", "gamejam", "team-project"],
