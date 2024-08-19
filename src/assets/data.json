@@ -1,5 +1,5 @@
 {
-  "types": ["games", "level-design"],
+  "types": ["games", "level-design", "analysis"],
   "engines": [
     {
       "id": "unity",
@@ -13,7 +13,16 @@
   "others-engines": [
     {
       "id": "construct2",
-      "name": "Construct 2"
+      "name": "Construct 2",
+
+      "id": "portal2",
+      "name": "Portal 2",
+
+      "id": "megamanmaker",
+      "name": "MegamanMaker",
+
+      "id": "tabletop-simulator",
+      "name": "Tabletop Simulator"
     }
   ],
   "tags": ["solo-project", "gamejam", "team-project"],
