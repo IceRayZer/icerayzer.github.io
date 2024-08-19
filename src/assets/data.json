@@ -13,15 +13,15 @@
   "others-engines": [
     {
       "id": "construct2",
-      "name": "Construct 2",
+      "name": "Construct 2"
     },
     {
       "id": "portal2",
-      "name": "Portal 2",
+      "name": "Portal 2"
     },
     {
       "id": "megamanmaker",
-      "name": "MegamanMaker",
+      "name": "MegamanMaker"
     },
     {
       "id": "tabletop-simulator",
