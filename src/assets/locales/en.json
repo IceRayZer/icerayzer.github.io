@@ -24,6 +24,7 @@
 
   "type.games": "Games",
   "type.level-design": "Level Design",
+  "type.analysis": "Analysis",
 
   "engine.all": "All",
   "engine.others": "Others",
@@ -31,5 +32,4 @@
   "tag.solo-project": "Solo project",
   "tag.gamejam": "Gamejam",
   "tag.team-project": "Team project"
-
 }
