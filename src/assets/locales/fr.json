@@ -29,5 +29,6 @@
   "engine.others": "Autres",
 
   "tag.solo-project": "Projet individuel",
-  "tag.gamejam": "Gamejam"
+  "tag.gamejam": "Gamejam",
+  "tag.team-project": "Projet en équipe"
 }
