@@ -11,27 +11,31 @@ useHead({
 </script>
 
 <template>
-  <div class="page">
-    <h2>{{ $t(`page.social-medias`) }}</h2>
-    <div class="content">
-      <div
-        class="social-media"
-        v-for="media in data['social-medias']"
-        :key="media.id"
-      >
-        <span class="name">{{ media.name }}</span>
-        <a :href="media.url" :title="media.name" target="_blank">
-          <img :src="getSocialMediaLogo(media.id)" :alt="media.name" />
-        </a>
-        <span
-          v-if="$t(`social-medias.${media.id}`) !== `social-medias.${media.id}`"
-          :title="$t(`social-medias.${media.id}`)"
+  <main>
+    <div class="page">
+      <h2>{{ $t(`page.social-medias`) }}</h2>
+      <div class="content">
+        <div
+          class="social-media"
+          v-for="media in data['social-medias']"
+          :key="media.id"
         >
-          {{ $t(`social-medias.${media.id}`) }}
-        </span>
+          <span class="name">{{ media.name }}</span>
+          <a :href="media.url" :title="media.name" target="_blank">
+            <img :src="getSocialMediaLogo(media.id)" :alt="media.name" />
+          </a>
+          <span
+            v-if="
+              $t(`social-medias.${media.id}`) !== `social-medias.${media.id}`
+            "
+            :title="$t(`social-medias.${media.id}`)"
+          >
+            {{ $t(`social-medias.${media.id}`) }}
+          </span>
+        </div>
       </div>
     </div>
-  </div>
+  </main>
 </template>
 
 <style scoped lang="less">

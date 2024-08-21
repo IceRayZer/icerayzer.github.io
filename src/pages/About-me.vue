@@ -11,5 +11,7 @@ useHead({
 </script>
 
 <template>
-  <Article :title="$t('page.about-me')" :article="data['about-me']" />
+  <main>
+    <Article :title="$t('page.about-me')" :article="data['about-me']" />
+  </main>
 </template>
