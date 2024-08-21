@@ -32,11 +32,6 @@
   "about-me": "<p>a propos</p>",
   "social-medias": [
     {
-      "id": "linkedin",
-      "name": "LinkedIn",
-      "url": "https://www.linkedin.com/in/eden-guedj-a01945229"
-    },
-    {
       "id": "artstation",
       "name": "ArtStation",
       "url": "https://icerayzer1.artstation.com"
