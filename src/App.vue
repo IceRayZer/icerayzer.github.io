@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useHead } from "@unhead/vue";
+import "quill/dist/quill.snow.css";
 import Navbar from "./components/Navbar.vue";
 
 useHead({
