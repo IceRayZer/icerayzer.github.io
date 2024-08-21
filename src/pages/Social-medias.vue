@@ -12,7 +12,7 @@ useHead({
 
 <template>
   <div class="page">
-    <h1>{{ $t(`page.social-medias`) }}</h1>
+    <h2>{{ $t(`page.social-medias`) }}</h2>
     <div class="content">
       <div
         class="social-media"
