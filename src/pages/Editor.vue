@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import "quill/dist/quill.snow.css";
 import { ref, toRaw } from "vue";
 import ProjectCard from "../components/ProjectCard.vue";
 import TextEditor from "../components/TextEditor.vue";

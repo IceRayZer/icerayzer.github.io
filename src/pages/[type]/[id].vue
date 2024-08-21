@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useHead } from "@unhead/vue";
-import "quill/dist/quill.snow.css";
 import { useI18n } from "vue-i18n";
 import { useRoute, useRouter } from "vue-router";
 import Article from "../../components/Article.vue";
