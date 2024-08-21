@@ -4,9 +4,12 @@ import ProjectCard from "../components/ProjectCard.vue";
 import TextEditor from "../components/TextEditor.vue";
 import { data } from "../constants";
 import { Project } from "../models";
-import { getProjetId, mapToProject } from "../utils";
+import { getProjetId, mapToProject, toEngineList } from "../utils";
 
-const allEngines = [...data.engines, ...data["others-engines"]];
+const allEngines = [
+  ...toEngineList(data.engines),
+  ...toEngineList(data["others-engines"]),
+];
 
 const project = ref<Project>({
   name: "",
@@ -37,6 +40,7 @@ function onImportFile() {
     }
   };
   reader.readAsText(file, "utf8");
+  importFile.value.value = "";
 }
 
 function exportProject() {
@@ -74,7 +78,7 @@ function switchTag(tag: string) {
 <template>
   <main>
     <ProjectCard class="card" :project="project" />
-    <div class="page" v-if="edit">
+    <div class="page" v-show="edit">
       <div class="content editor">
         <label class="input-group">
           <span>{{ $t("project.name") }}</span>
@@ -128,7 +132,7 @@ function switchTag(tag: string) {
       </div>
     </div>
     <Article
-      v-else
+      v-if="!edit"
       :title="project?.name ?? ''"
       :article="project?.article ?? ''"
       :engine="project?.engine"

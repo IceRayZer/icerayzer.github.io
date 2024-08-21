@@ -1,9 +1,8 @@
 
 export declare interface Data {
-  languages: string[];
   types: string[];
-  engines: Engine[];
-  "others-engines": Engine[];
+  engines: Engines;
+  "others-engines": Engines;
   tags: string[];
   "about-me": string;
   "social-medias": SocialMedia[];
@@ -24,6 +23,8 @@ export declare interface Project {
   summary?: string;
   article?: string;
 }
+
+export declare type Engines = Record<string, string>
 
 export declare interface Engine {
   id: string;

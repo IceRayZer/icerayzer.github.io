@@ -11,7 +11,7 @@ import { defaultLocale, mapToProject } from './utils.js';
 export const createApp = ViteSSG(App, {
   base: import.meta.env.BASE_URL,
   routes,
-}, async ({ app, router, initialState, isClient }) => {
+}, async ({ app, router, initialState }) => {
   // Store
   const pinia = createPinia()
   app.use(pinia)

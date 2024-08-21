@@ -1,35 +1,17 @@
 {
   "types": ["games", "level-design", "analysis"],
-  "engines": [
-    {
-      "id": "unity",
-      "name": "Unity"
-    },
-    {
-      "id": "unreal-engine",
-      "name": "Unreal Engine"
-    }
-  ],
-  "others-engines": [
-    {
-      "id": "construct2",
-      "name": "Construct 2"
-    },
-    {
-      "id": "portal2",
-      "name": "Portal 2"
-    },
-    {
-      "id": "megamanmaker",
-      "name": "MegamanMaker"
-    },
-    {
-      "id": "tabletop-simulator",
-      "name": "Tabletop Simulator"
-    }
-  ],
+  "engines": {
+    "unity": "Unity",
+    "unreal-engine": "Unreal Engine"
+  },
+  "others-engines": {
+    "construct2": "Construct 2",
+    "portal2": "Portal 2",
+    "megamanmaker": "MegamanMaker",
+    "tabletop-simulator": "Tabletop Simulator"
+  },
   "tags": ["solo-project", "gamejam", "team-project"],
-  "about-me": "<p style=\"text-align: center;\"><span style=\"color: rgb(153, 153, 153);\" class=\"ql-size-huge\">Je viens tout juste de finir mon&nbsp;</span><span style=\"color: rgb(211, 211, 211);\" class=\"ql-size-huge\">bachelor de&nbsp;</span><strong style=\"color: rgb(211, 211, 211);\" class=\"ql-size-huge\">Game design</strong><span style=\"color: rgb(153, 153, 153);\" class=\"ql-size-huge\">&nbsp;dans l'établissement d'enseignement supérieur&nbsp;</span><strong style=\"color: rgb(255, 158, 83);\" class=\"ql-size-huge\">ICAN Design</strong><span style=\"color: rgb(153, 153, 153);\" class=\"ql-size-huge\">, à paris.</span></p><p style=\"text-align: center;\"><span style=\"color: rgb(153, 153, 153);\" class=\"ql-size-huge\">Depuis mon arrivé dans cette école, j'ai pu, de près comme de loin, discuter et/ou toucher à la majorité des domaines qui constituent l'industrie du jeu vidéo. Suite à quoi,&nbsp;j'ai décidé de me diriger vers le&nbsp;</span><strong style=\"color: rgb(255, 158, 83);\" class=\"ql-size-huge\">Level Design</strong><span style=\"color: rgb(153, 153, 153);\" class=\"ql-size-huge\">&nbsp;ou l'</span><strong style=\"color: rgb(255, 158, 83);\" class=\"ql-size-huge\">UX Design</strong><strong style=\"color: rgb(153, 153, 153);\" class=\"ql-size-huge\">.</strong></p><p style=\"text-align: center;\"><span style=\"color: rgb(153, 153, 153);\" class=\"ql-size-huge\">J'ai pour objectif, dans chacune de mes créations, que les joueurs ressortent&nbsp;</span><span style=\"color: rgb(211, 211, 211);\" class=\"ql-size-huge\">questionnés</span><span style=\"color: rgb(153, 153, 153);\" class=\"ql-size-huge\">&nbsp;après leur expérience. Je veux que mes niveaux incluent&nbsp;</span><span style=\"color: rgb(211, 211, 211);\" class=\"ql-size-huge\">des notions sur lesquels les utilisateurs pourront évoluer avec, dans leur vie</span><span style=\"color: rgb(153, 153, 153);\" class=\"ql-size-huge\">. Des questions morales, de vie et bien d'autre. L'important est de faire réfléchir le joueur pendant mais aussi après son expérience, pour qu'il&nbsp;</span><span style=\"color: rgb(211, 211, 211);\" class=\"ql-size-huge\">en ressorte enrichie</span><span style=\"color: rgb(153, 153, 153);\" class=\"ql-size-huge\">.</span></p>",
+  "about-me": "<p style=\"text-align: center;\"><span style=\"color: rgb(153, 153, 153);\" class=\"ql-size-huge\">Je viens tout juste de finir mon&nbsp;</span><span style=\"color: rgb(211, 211, 211);\" class=\"ql-size-huge\">bachelor de&nbsp;</span><strong style=\"color: rgb(211, 211, 211);\" class=\"ql-size-huge\">Game design</strong><span style=\"color: rgb(153, 153, 153);\" class=\"ql-size-huge\">&nbsp;dans l'ï¿½tablissement d'enseignement supï¿½rieur&nbsp;</span><strong style=\"color: rgb(255, 158, 83);\" class=\"ql-size-huge\">ICAN Design</strong><span style=\"color: rgb(153, 153, 153);\" class=\"ql-size-huge\">, ï¿½ paris.</span></p><p style=\"text-align: center;\"><span style=\"color: rgb(153, 153, 153);\" class=\"ql-size-huge\">Depuis mon arrivï¿½ dans cette ï¿½cole, j'ai pu, de prï¿½s comme de loin, discuter et/ou toucher ï¿½ la majoritï¿½ des domaines qui constituent l'industrie du jeu vidï¿½o. Suite ï¿½ quoi,&nbsp;j'ai dï¿½cidï¿½ de me diriger vers le&nbsp;</span><strong style=\"color: rgb(255, 158, 83);\" class=\"ql-size-huge\">Level Design</strong><span style=\"color: rgb(153, 153, 153);\" class=\"ql-size-huge\">&nbsp;ou l'</span><strong style=\"color: rgb(255, 158, 83);\" class=\"ql-size-huge\">UX Design</strong><strong style=\"color: rgb(153, 153, 153);\" class=\"ql-size-huge\">.</strong></p><p style=\"text-align: center;\"><span style=\"color: rgb(153, 153, 153);\" class=\"ql-size-huge\">J'ai pour objectif, dans chacune de mes crï¿½ations, que les joueurs ressortent&nbsp;</span><span style=\"color: rgb(211, 211, 211);\" class=\"ql-size-huge\">questionnï¿½s</span><span style=\"color: rgb(153, 153, 153);\" class=\"ql-size-huge\">&nbsp;aprï¿½s leur expï¿½rience. Je veux que mes niveaux incluent&nbsp;</span><span style=\"color: rgb(211, 211, 211);\" class=\"ql-size-huge\">des notions sur lesquels les utilisateurs pourront ï¿½voluer avec, dans leur vie</span><span style=\"color: rgb(153, 153, 153);\" class=\"ql-size-huge\">. Des questions morales, de vie et bien d'autre. L'important est de faire rï¿½flï¿½chir le joueur pendant mais aussi aprï¿½s son expï¿½rience, pour qu'il&nbsp;</span><span style=\"color: rgb(211, 211, 211);\" class=\"ql-size-huge\">en ressorte enrichie</span><span style=\"color: rgb(153, 153, 153);\" class=\"ql-size-huge\">.</span></p>",
   "social-medias": [
     {
       "id": "artstation",

@@ -1,5 +1,5 @@
 import { data } from "./constants.js";
-import { type Project } from "./models.js";
+import { type Engine, type Engines, type Project } from "./models.js";
 
 export function getProjetId(name: string): string {
   return name.toLowerCase().replace(" ", "-").replace(/'|`/g, "");
@@ -17,8 +17,15 @@ export function mapToProject(project: Project): Project {
   }
 }
 
+export function toEngineList(engines: Engines): Engine[] {
+  return Object.keys(engines ?? {}).map((id) => ({
+    id,
+    name: engines[id]
+  }))
+}
+
 export function getEngineName(engine: string) {
-  return [...data.engines, ...data["others-engines"]].find((e) => e.id === engine)?.name;
+  return [...toEngineList(data.engines), ...toEngineList(data["others-engines"])].find((e) => e.id === engine)?.name;
 }
 
 export function getEngineLogo(engine: string) {

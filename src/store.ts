@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 import { data } from "./constants.js";
 import { type Project } from "./models.js";
+import { toEngineList } from "./utils.js";
 
 interface ProjectsStore {
   projects: Project[];
@@ -29,7 +30,7 @@ export const useProjectsStore = defineStore('projects', {
     filteredProjects: (state): Project[] => {
       let projects = state.projects.filter((p) => p.name.toLowerCase().includes(state.search.toLowerCase()));
       if (state.engine === "all") return projects;
-      if (state.engine === "others") return projects.filter((p) => data["others-engines"].findIndex((e) => e.id === p.engine) > -1);
+      if (state.engine === "others") return projects.filter((p) => toEngineList(data["others-engines"]).findIndex((e) => e.id === p.engine) > -1);
  
       return projects.filter((p) => p.engine === state.engine);
     },
