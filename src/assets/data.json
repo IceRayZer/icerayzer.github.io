@@ -22,6 +22,16 @@
       "id": "itchio",
       "name": "itch.io",
       "url": "https://itch.io/profile/icerayzer"
+    },
+    {
+      "id": "twitch",
+      "name": "Twitch",
+      "url": "oo"
+    },
+    {
+      "id": "youtube",
+      "name": "Youtube",
+      "url": "uu"
     }
   ]
 }
