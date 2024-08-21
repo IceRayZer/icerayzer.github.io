@@ -16,7 +16,7 @@ withDefaults(defineProps<ArticleProps>(), {
 <template>
   <div class="page">
     <h1>{{ $props.title }}</h1>
-    <div class="content">
+    <div class="content ql-editor">
       <div class="infos">
         <div class="tags">
           <span

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { Parchment } from "quill";
 import { onMounted, ref } from "vue";
 import { QuillyEditor } from "vue-quilly";
 
@@ -33,10 +32,6 @@ let quill = null;
 
 onMounted(async () => {
   const Quill = (await import("quill")).default;
-  const AlignStyle = Quill.import(
-    "attributors/style/align"
-  ) as typeof Parchment;
-  Quill.register(AlignStyle, true);
   quill = editor.value?.initialize(Quill) ?? null;
 });
 </script>

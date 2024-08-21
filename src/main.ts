@@ -1,4 +1,5 @@
 import { createPinia } from 'pinia';
+import "quill/dist/quill.core.css";
 import { ViteSSG } from 'vite-ssg';
 import { createI18n } from 'vue-i18n';
 import routes from '~pages';
