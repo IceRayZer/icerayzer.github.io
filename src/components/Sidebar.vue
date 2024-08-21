@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { data } from "../constants";
 import { useProjectsStore } from "../store";
-import { getEngineLogo } from "../utils";
+import { getEngineLogo, toEngineList } from "../utils";
 
 const store = useProjectsStore();
 
@@ -22,7 +22,7 @@ function isActive(engine: string) {
     </button>
     <button
       :class="{ active: isActive(engine.id) }"
-      v-for="engine in data.engines"
+      v-for="engine in toEngineList(data.engines)"
       :key="engine.id"
       type="button"
       :title="engine.name"
