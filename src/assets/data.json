@@ -1,5 +1,5 @@
 {
-  "types": ["games", "level-design", "analysis"],
+  "types": ["games", "level-design"],// "analysis"],
   "engines": {
     "unity": "Unity",
     "unreal-engine": "Unreal Engine"
