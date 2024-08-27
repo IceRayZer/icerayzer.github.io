@@ -26,7 +26,7 @@
 
   "type.games": "Jeux",
   "type.level-design": "Level Design",
-  "type.analysis": "Analyse",
+  //"type.analysis": "Analyse",
 
   "engine.all": "Tous",
   "engine.others": "Autres",
