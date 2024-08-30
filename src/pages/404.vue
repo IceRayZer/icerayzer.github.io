@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <h1>Page not found</h1>
+    <h1>{{ $t("page.404") }}</h1>
   </div>
 </template>
 
