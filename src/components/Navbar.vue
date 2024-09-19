@@ -126,7 +126,7 @@ nav {
 
   .search {
     width: 100%;
-    min-width: 64px;
+    min-width: 256px;
     max-width: 100%;
   }
 

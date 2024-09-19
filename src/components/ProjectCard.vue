@@ -67,8 +67,7 @@ const projectLocation = computed(() =>
 @import "../colors.less";
 
 .project-card {
-  width: 600px;
-  height: 400px;
+  aspect-ratio: 3/2;
   position: relative;
   border-radius: 8px;
   color: white;
@@ -198,28 +197,6 @@ const projectLocation = computed(() =>
 
     .summary {
       opacity: 1;
-    }
-  }
-}
-
-@media only screen and (max-width: 1920px) {
-  .project-list {
-    .project-card {
-      width: 400px;
-      height: 266px;
-
-      .infos {
-        transform: translateY(70%);
-      }
-    }
-  }
-}
-
-@media only screen and (max-width: 1280px) {
-  .project-list {
-    .project-card {
-      width: 300px;
-      height: 200px;
     }
   }
 }
