@@ -24,42 +24,11 @@ defineProps<ProjectListProps>();
 <style scoped lang="less">
 .project-list {
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: min-content;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   gap: 64px;
   padding: 64px;
   margin-left: 96px;
-}
-
-@media only screen and (max-width: 2560px) {
-  .project-list {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-@media only screen and (max-width: 1920px) {
-  .project-list {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 48px;
-    padding: 48px;
-  }
-}
-
-@media only screen and (max-width: 1280px) {
-  .project-list {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 48px;
-    padding: 48px;
-  }
-}
-
-@media only screen and (max-width: 960px) {
-  .project-list {
-    grid-template-columns: 1fr;
-    gap: 32px;
-    padding: 32px;
-  }
 }
 </style>
