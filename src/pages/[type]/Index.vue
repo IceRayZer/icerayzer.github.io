@@ -27,11 +27,20 @@ const pageTitle = computed(
 useHead({
   title: pageTitle,
 });
+
+const engines = computed(() => [
+  ...new Set(
+    store.projects
+      .filter((p) => p.type === route.params.type)
+      .map((p) => p.engine)
+      .filter((e) => e != null)
+  ),
+]);
 </script>
 
 <template>
   <main>
-    <Sidebar />
+    <Sidebar :engines="engines" />
     <ProjectList :projects="projects" :type="String($route.params.type)" />
   </main>
 </template>

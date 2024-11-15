@@ -1,17 +1,42 @@
 <script setup lang="ts">
+import { computed } from "vue";
 import { data } from "../constants";
 import { useProjectsStore } from "../store";
 import { getEngineLogo, toEngineList } from "../utils";
 
+interface SidebarProps {
+  engines: string[];
+}
+
+const props = defineProps<SidebarProps>();
 const store = useProjectsStore();
 
 function isActive(engine: string) {
   return engine === store.engine;
 }
+
+const engines = computed(() =>
+  [
+    ...toEngineList(data.engines),
+    ...toEngineList(data["others-engines"]),
+  ].filter((e) => props.engines.includes(e.id))
+);
+
+const hasOthersEngines = computed(
+  () =>
+    engines.value.filter(
+      (engine) =>
+        toEngineList(data["others-engines"]).findIndex(
+          (e) => e.id === engine.id
+        ) > -1
+    ).length > 0
+);
+
+console.log(engines.value);
 </script>
 
 <template>
-  <aside>
+  <aside v-if="engines.length > 1">
     <button
       :class="{ active: isActive('all') }"
       type="button"
@@ -20,9 +45,10 @@ function isActive(engine: string) {
     >
       <span>{{ $t("engine.all") }}</span>
     </button>
+
     <button
       :class="{ active: isActive(engine.id) }"
-      v-for="engine in toEngineList(data.engines)"
+      v-for="engine in engines.filter((e) => data.engines[e.id])"
       :key="engine.id"
       type="button"
       :title="engine.name"
@@ -32,6 +58,7 @@ function isActive(engine: string) {
     </button>
 
     <button
+      v-if="hasOthersEngines"
       :class="{ active: isActive('others') }"
       type="button"
       :title="$t('engine.others')"
