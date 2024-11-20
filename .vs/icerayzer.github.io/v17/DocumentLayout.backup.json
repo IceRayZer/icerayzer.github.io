@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "F:\\Eden\\Cours\\[Perso] Projet\\Site\\[NEW] Mon Site\\IceRayZer-pf\\icerayzer.github.io\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\Eden\\Cours\\[Perso] Projet\\Site\\[NEW] Mon Site\\IceRayZer-pf\\icerayzer.github.io\\src\\assets\\locales\\en.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\assets\\locales\\en.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\Eden\\Cours\\[Perso] Projet\\Site\\[NEW] Mon Site\\IceRayZer-pf\\icerayzer.github.io\\src\\assets\\locales\\fr.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\assets\\locales\\fr.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
@@ -27,32 +23,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "en.json",
-              "DocumentMoniker": "F:\\Eden\\Cours\\[Perso] Projet\\Site\\[NEW] Mon Site\\IceRayZer-pf\\icerayzer.github.io\\src\\assets\\locales\\en.json",
-              "RelativeDocumentMoniker": "src\\assets\\locales\\en.json",
-              "ToolTip": "F:\\Eden\\Cours\\[Perso] Projet\\Site\\[NEW] Mon Site\\IceRayZer-pf\\icerayzer.github.io\\src\\assets\\locales\\en.json",
-              "RelativeToolTip": "src\\assets\\locales\\en.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-11-20T18:20:04.59Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "fr.json",
               "DocumentMoniker": "F:\\Eden\\Cours\\[Perso] Projet\\Site\\[NEW] Mon Site\\IceRayZer-pf\\icerayzer.github.io\\src\\assets\\locales\\fr.json",
               "RelativeDocumentMoniker": "src\\assets\\locales\\fr.json",
               "ToolTip": "F:\\Eden\\Cours\\[Perso] Projet\\Site\\[NEW] Mon Site\\IceRayZer-pf\\icerayzer.github.io\\src\\assets\\locales\\fr.json",
               "RelativeToolTip": "src\\assets\\locales\\fr.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-11-12T22:42:31.447Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "data.json",
               "DocumentMoniker": "F:\\Eden\\Cours\\[Perso] Projet\\Site\\[NEW] Mon Site\\IceRayZer-pf\\icerayzer.github.io\\src\\assets\\data.json",
               "RelativeDocumentMoniker": "src\\assets\\data.json",
@@ -60,7 +43,8 @@
               "RelativeToolTip": "src\\assets\\data.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-11-12T22:18:16.362Z"
+              "WhenOpened": "2024-11-12T22:18:16.362Z",
+              "EditorCaption": ""
             }
           ]
         }
