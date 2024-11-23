@@ -2,7 +2,8 @@
   "types": ["games", "level-design", "ux-ui-design"],
   "engines": {
     "unity": "Unity",
-    "unreal-engine": "Unreal Engine"
+    "unreal-engine": "Unreal Engine",
+    "figma": "Figma"
   },
   "others-engines": {
     "construct2": "Construct 2",
