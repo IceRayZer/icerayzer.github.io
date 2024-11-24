@@ -4,15 +4,13 @@ import { useI18n } from "vue-i18n";
 import { useRoute, useRouter } from "vue-router";
 import Article from "../../components/Article.vue";
 import { useProjectsStore } from "../../store";
-import { getProjectThumbnail, getProjetId } from "../../utils";
+import { getProjectThumbnail } from "../../utils";
 
 const route = useRoute();
 const router = useRouter();
 const store = useProjectsStore();
 
-const project = store.projects.find(
-  (p) => getProjetId(p.name) === route.params.id
-);
+const project = store.projects.find((p) => p.id === route.params.id);
 
 if (project == null) {
   router.replace("/404");

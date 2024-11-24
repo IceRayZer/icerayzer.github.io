@@ -1,12 +1,9 @@
 import { data } from "./constants.js";
 import { type Engine, type Engines, type Project } from "./models.js";
 
-export function getProjetId(name: string): string {
-  return name.toLowerCase().replace(/'|`|\/|:/g, "").replace(/ +/g, "_");
-}
-
 export function mapToProject(project: Project): Project {
   return {
+    id: project.id,
     name: project.name,
     engine: project.engine,
     type: project.type,
@@ -38,7 +35,7 @@ export function getSocialMediaLogo(socialMedia: string) {
 
 export function getProjectThumbnail(project: Project) {
   let src = new URL(
-    `./assets/projects/${project.type}/${getProjetId(project.name)}/${project.thumbnail}`,
+    `./assets/projects/${project.type}/${project.id}/${project.thumbnail}`,
     import.meta.url
   ).toString();
   try {
@@ -46,6 +43,10 @@ export function getProjectThumbnail(project: Project) {
   } catch {}
 
   return src;
+}
+
+export function getProjectId (path: string): string {
+  return path.match(/([^\/.]+)\.[^.]+$/)?.[1] ?? path
 }
 
 export const defaultLocale = navigator.language.split('-')[0]

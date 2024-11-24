@@ -4,7 +4,7 @@ import ProjectCard from "../components/ProjectCard.vue";
 import TextEditor from "../components/TextEditor.vue";
 import { data } from "../constants";
 import { Project } from "../models";
-import { getProjetId, mapToProject, toEngineList } from "../utils";
+import { mapToProject, toEngineList } from "../utils";
 
 const allEngines = [
   ...toEngineList(data.engines),
@@ -12,6 +12,7 @@ const allEngines = [
 ];
 
 const project = ref<Project>({
+  id: "",
   name: "",
   engine: allEngines[0]?.id,
   type: data.types[0],
@@ -49,7 +50,7 @@ function exportProject() {
   const proj: Project = mapToProject(structuredClone(toRaw(project.value)));
 
   const a = document.createElement("a");
-  a.download = getProjetId(proj.name);
+  a.download = proj.id;
   const url = URL.createObjectURL(
     new Blob([JSON.stringify(proj)], {
       type: "application/json",

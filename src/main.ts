@@ -6,7 +6,7 @@ import routes from '~pages';
 import App from './App.vue';
 import { Project } from './models.js';
 import { useProjectsStore } from './store.js';
-import { defaultLocale, mapToProject } from './utils.js';
+import { defaultLocale, getProjectId, mapToProject } from './utils.js';
 
 export const createApp = ViteSSG(App, {
   base: import.meta.env.BASE_URL,
@@ -39,8 +39,15 @@ export const createApp = ViteSSG(App, {
 })
 
 async function loadProjects (): Promise<Project[]> {
-  const projects = await Promise.all(Object.values(import.meta.glob('./assets/projects/**/*.json')).map(p => p())) as Project[]
-  return projects.map(mapToProject)
+  const projectsModules = import.meta.glob('./assets/projects/**/*.json')
+  const projects: Project[] = []
+  for (const projectPath of Object.keys(projectsModules)) {
+    const projectData = await projectsModules[projectPath]() as Project
+    const project = mapToProject(projectData)
+    project.id = getProjectId(projectPath)
+    projects.push(project)
+  }
+  return projects
 }
 
 async function loadLanguages (): Promise<Record<string, Record<string, string>>> {

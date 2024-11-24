@@ -15,6 +15,7 @@ export declare interface TypeRoute {
 }
 
 export declare interface Project {
+  id: string;
   name: string;
   engine: string;
   type: ProjectType;

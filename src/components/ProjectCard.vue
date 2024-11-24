@@ -1,12 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { ProjectType, type Project } from "../models";
-import {
-  getEngineLogo,
-  getEngineName,
-  getProjectThumbnail,
-  getProjetId,
-} from "../utils";
+import { getEngineLogo, getEngineName, getProjectThumbnail } from "../utils";
 
 interface ProjectCardProps {
   project: Project;
@@ -16,7 +11,7 @@ interface ProjectCardProps {
 const props = defineProps<ProjectCardProps>();
 
 const projectLocation = computed(() =>
-  props.type == null ? "" : `/${props.type}/${getProjetId(props.project.name)}`
+  props.type == null ? "" : `/${props.type}/${props.project.id}`
 );
 </script>
 
