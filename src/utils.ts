@@ -2,7 +2,7 @@ import { data } from "./constants.js";
 import { type Engine, type Engines, type Project } from "./models.js";
 
 export function getProjetId(name: string): string {
-  return name.toLowerCase().replace(" ", "-").replace(/'|`/g, "");
+  return name.toLowerCase().replace(/'|`|\/|:/g, "").replace(/ +/g, "_");
 }
 
 export function mapToProject(project: Project): Project {

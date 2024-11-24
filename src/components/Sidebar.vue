@@ -31,8 +31,6 @@ const hasOthersEngines = computed(
         ) > -1
     ).length > 0
 );
-
-console.log(engines.value);
 </script>
 
 <template>
