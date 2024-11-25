@@ -2,8 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\assets"
+    "\\src\\assets",
+    "\\src\\assets\\projects",
+    "\\src\\assets\\projects\\ux-ui-design",
+    "\\src\\assets\\projects\\ux-ui-design\\cherche-vie_(ux_ui)"
   ],
-  "SelectedNode": "\\src\\main.less",
+  "SelectedNode": "\\src\\assets\\projects\\ux-ui-design\\cherche-vie_(ux_ui)\\encyclopedie-main.png",
   "PreviewInSolutionExplorer": false
 }
