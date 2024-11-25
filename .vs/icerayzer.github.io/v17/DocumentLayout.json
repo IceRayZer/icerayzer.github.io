@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "F:\\Eden\\Cours\\[Perso] Projet\\Site\\[NEW] Mon Site\\IceRayZer-pf\\icerayzer.github.io\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\Eden\\Cours\\[Perso] Projet\\Site\\[NEW] Mon Site\\IceRayZer-pf\\icerayzer.github.io\\src\\main.less||{28C69EDA-EDF9-4CA8-9EBE-443348B6D916}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\main.less||{28C69EDA-EDF9-4CA8-9EBE-443348B6D916}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\Eden\\Cours\\[Perso] Projet\\Site\\[NEW] Mon Site\\IceRayZer-pf\\icerayzer.github.io\\src\\assets\\data.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\assets\\data.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
@@ -22,11 +26,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "main.less",
+              "DocumentMoniker": "F:\\Eden\\Cours\\[Perso] Projet\\Site\\[NEW] Mon Site\\IceRayZer-pf\\icerayzer.github.io\\src\\main.less",
+              "RelativeDocumentMoniker": "src\\main.less",
+              "ToolTip": "F:\\Eden\\Cours\\[Perso] Projet\\Site\\[NEW] Mon Site\\IceRayZer-pf\\icerayzer.github.io\\src\\main.less",
+              "RelativeToolTip": "src\\main.less",
+              "ViewState": "AgIAALoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001682|",
+              "WhenOpened": "2024-11-24T19:22:35.871Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "en.json",
               "DocumentMoniker": "F:\\Eden\\Cours\\[Perso] Projet\\Site\\[NEW] Mon Site\\IceRayZer-pf\\icerayzer.github.io\\src\\assets\\locales\\en.json",
               "RelativeDocumentMoniker": "src\\assets\\locales\\en.json",
@@ -38,7 +55,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "fr.json",
               "DocumentMoniker": "F:\\Eden\\Cours\\[Perso] Projet\\Site\\[NEW] Mon Site\\IceRayZer-pf\\icerayzer.github.io\\src\\assets\\locales\\fr.json",
               "RelativeDocumentMoniker": "src\\assets\\locales\\fr.json",
@@ -50,7 +67,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "data.json",
               "DocumentMoniker": "F:\\Eden\\Cours\\[Perso] Projet\\Site\\[NEW] Mon Site\\IceRayZer-pf\\icerayzer.github.io\\src\\assets\\data.json",
               "RelativeDocumentMoniker": "src\\assets\\data.json",

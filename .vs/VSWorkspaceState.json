@@ -2,10 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\assets",
-    "\\src\\assets\\locales",
-    "\\src\\assets\\projects"
+    "\\src\\assets"
   ],
-  "SelectedNode": "\\src\\assets\\projects\\ux-ui-design",
+  "SelectedNode": "\\src\\main.less",
   "PreviewInSolutionExplorer": false
 }
