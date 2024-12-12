@@ -7,25 +7,25 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "@unhead/vue": "^1.9.16",
-    "quill": "^2.0.2",
-    "vue": "^3.4.33",
-    "vue-i18n": "^9.13.1",
-    "vue-quilly": "^1.0.5"
+    "quill": "^2.0.3",
+    "vue": "^3.5.13",
+    "vue-i18n": "^10.0.5",
+    "vue-quilly": "^1.1.2"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^5.0.5",
+    "@unhead/vue": "^1.11.14",
+    "@vitejs/plugin-vue": "^5.2.1",
     "critters": "^0.0.24",
     "cross-env": "^7.0.3",
-    "less": "^4.2.0",
-    "pinia": "^2.1.7",
-    "typescript": "^5.5.3",
-    "unplugin-vue-components": "^0.27.3",
-    "vite": "^5.3.4",
-    "vite-plugin-pages": "^0.32.3",
-    "vite-ssg": "^0.23.8",
+    "less": "^4.2.1",
+    "pinia": "^2.3.0",
+    "typescript": "^5.7.2",
+    "unplugin-vue-components": "^0.27.5",
+    "vite": "^6.0.3",
+    "vite-plugin-pages": "^0.32.4",
+    "vite-ssg": "^0.24.2",
     "vite-svg-loader": "^5.1.0",
-    "vue-router": "^4.4.0"
+    "vue-router": "^4.5.0"
   },
   "packageManager": "pnpm@9.5.0+sha512.140036830124618d624a2187b50d04289d5a087f326c9edfc0ccd733d76c4f52c3a313d4fc148794a2a9d81553016004e6742e8cf850670268a7387fc220c903"
 }
