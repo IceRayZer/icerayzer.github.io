@@ -53,7 +53,7 @@ export function getProjectId(path: string): string {
 
 export async function loadArticle(project: Project) {
   const res = await fetch(`/articles/${project.lang}/${project.type}/${project.id}.txt`);
-  if (res.headers.get('Content-Type') !== 'text/plain') return undefined;
+  if (!res.headers.get('Content-Type')?.startsWith('text/plain')) return undefined;
   return await res?.text();
 }
 

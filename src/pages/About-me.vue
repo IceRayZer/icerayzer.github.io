@@ -19,7 +19,7 @@ loadText();
 
 function loadText() {
   fetch(`/about-me/${locale.value}.txt`).then((res) => {
-    if (res.headers.get('Content-Type') !== 'text/plain') return;
+    if (!res.headers.get('Content-Type')?.startsWith('text/plain')) return;
     res.text().then((text) => {
       article.value = text;
     });
