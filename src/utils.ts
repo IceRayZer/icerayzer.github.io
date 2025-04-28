@@ -1,7 +1,7 @@
 import { onBeforeUnmount, onMounted } from 'vue';
 import { data } from './constants.js';
 import { type Engine, type Engines, type Project } from './models.js';
-import { useRoute, useRouter } from 'vue-router';
+import { useRoute } from 'vue-router';
 
 export function mapToProject(project: Project): Project {
   return {
