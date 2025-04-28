@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router';
 import { data } from './constants.js';
 import { useProjectsStore } from './store.js';
 import type { Project } from './models.js';
@@ -7,7 +7,7 @@ import type { Pinia } from 'pinia';
 
 export default async function (pinia: Pinia) {
   const router = createRouter({
-    history: createWebHistory(),
+    history: createWebHashHistory(),
     routes: [
       { path: '/', redirect: '/' + (data.types[0] ?? '') },
       { path: '/about-me', component: () => import('./pages/About-me.vue') },
