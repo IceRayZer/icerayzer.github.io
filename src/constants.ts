@@ -1,3 +1,3 @@
-import { Data } from './models.js';
+import type { Data } from './models.js';
 
-export const data = (await import('./assets/data.json')).default as Data
+export let data = (await import('./assets/data.json')).default as Data;

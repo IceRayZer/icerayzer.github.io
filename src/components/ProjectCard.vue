@@ -1,65 +1,64 @@
 <script setup lang="ts">
-import { computed } from "vue";
-import { ProjectType, type Project } from "../models";
-import { getEngineLogo, getEngineName, getProjectThumbnail } from "../utils";
+import { computed, ref } from 'vue';
+import type { ProjectType, Project } from '../models';
+import { getEngineLogo, getEngineName, getProjectThumbnail, useResizeWindow } from '../utils';
+import { useRouter } from 'vue-router';
 
 interface ProjectCardProps {
   project: Project;
-  type?: ProjectType;
+  type: ProjectType;
 }
 
 const props = defineProps<ProjectCardProps>();
 
-const projectLocation = computed(() =>
-  props.type == null ? "" : `/${props.type}/${props.project.id}`
-);
+const router = useRouter();
+
+const showHover = ref(false);
+
+const projectLocation = computed(() => (props.type == null ? '' : `/${props.type}/${props.project.id}`));
+
+useResizeWindow(() => {
+  showHover.value = window.innerWidth <= 960;
+});
+
+function clickOnCard() {
+  if (!showHover.value) return;
+
+  router.push(projectLocation.value);
+}
 </script>
 
 <template>
-  <div class="project-card">
+  <div class="project-card" :class="{ hover: showHover }" @click="clickOnCard">
     <img
-      class="thumbnail"
       v-if="$props.project.thumbnail != null && $props.project.thumbnail != ''"
+      class="thumbnail"
       :src="getProjectThumbnail($props.project)"
       :alt="$props.project.name"
     />
     <div class="gradient"></div>
+    <span class="title" :title="$props.project.name">{{ $props.project.name }}</span>
     <div class="infos">
       <div class="details">
         <div class="name">
-          <span :title="$props.project.name">{{ $props.project.name }}</span>
-          <img
-            class="logo"
-            :src="getEngineLogo($props.project.engine)"
-            :title="getEngineName($props.project.engine)"
-          />
+          <img class="logo" :src="getEngineLogo($props.project.engine)" :title="getEngineName($props.project.engine)" />
         </div>
         <div class="tags">
-          <span
-            ref="tags"
-            class="tag"
-            v-for="tag in $props.project.tags"
-            :key="tag"
-            :title="$t(`tag.${tag}`)"
-            >{{ $t(`tag.${tag}`) }}</span
-          >
+          <span ref="tags" class="tag" v-for="tag in $props.project.tags" :key="tag" :title="$t(`tag.${tag}`)">{{
+            $t(`tag.${tag}`)
+          }}</span>
         </div>
       </div>
-      <p class="summary">{{ $props.project.summary }}</p>
-      <div class="actions">
-        <RouterLink
-          class="showmore btn primary"
-          v-if="$props.project.article != null"
-          :to="projectLocation"
-          >{{ $t("projects.showmore") }}</RouterLink
-        >
+      <p class="summary" :title="$props.project.summary">{{ $props.project.summary }}</p>
+      <div v-if="$props.project.article && !showHover" class="actions">
+        <RouterLink class="showmore btn primary" :to="projectLocation">{{ $t('projects.showmore') }}</RouterLink>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped lang="less">
-@import "../colors.less";
+@import '../colors.less';
 
 .project-card {
   aspect-ratio: 3/2;
@@ -71,8 +70,7 @@ const projectLocation = computed(() =>
   box-shadow: 0 32px 16px -18px #00000055;
 
   > .thumbnail,
-  > .gradient,
-  > .title {
+  > .gradient {
     position: absolute;
     top: 0;
     left: 0;
@@ -94,6 +92,22 @@ const projectLocation = computed(() =>
       fade(@background-color, 90%) 24%,
       fade(@background-color, 40%)
     );
+  }
+
+  > .title {
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 900;
+    transform: translate(-50%, -50%);
+    transition: all 300ms ease-in-out;
   }
 
   .infos {
@@ -122,16 +136,9 @@ const projectLocation = computed(() =>
       .name {
         width: 100%;
         display: flex;
-        justify-content: space-between;
+        justify-content: end;
         align-items: center;
         transition: font-weight 300ms ease-in-out;
-
-        > span {
-          font-size: 18px;
-          text-overflow: ellipsis;
-          overflow: hidden;
-          white-space: nowrap;
-        }
       }
 
       .logo {
@@ -173,17 +180,23 @@ const projectLocation = computed(() =>
     z-index: 2;
   }
 
-  &:hover {
+  &:hover,
+  &.hover {
     .thumbnail {
       filter: blur(4px);
     }
 
+    .title {
+      text-align: start;
+      font-weight: bold;
+      font-size: 18px;
+      top: 5%;
+      left: 5%;
+      transform: translate(0, 50%);
+    }
+
     .infos {
       transform: translateY(0%);
-
-      .name {
-        font-weight: bold;
-      }
 
       .tags {
         opacity: 1;
@@ -193,6 +206,12 @@ const projectLocation = computed(() =>
     .summary {
       opacity: 1;
     }
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  .showmore {
+    height: 24px;
   }
 }
 </style>

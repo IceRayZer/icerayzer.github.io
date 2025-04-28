@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { useHead } from "@unhead/vue";
-import { useI18n } from "vue-i18n";
-import { data } from "../constants";
-import { getSocialMediaLogo } from "../utils";
+import { useI18n } from 'vue-i18n';
+import { data } from '../constants';
+import { getSocialMediaLogo } from '../utils';
+import { useHead } from '@unhead/vue';
 
 const { t } = useI18n();
 useHead({
-  title: `${t("page.social-medias")} - IceRayZer Portfolio`,
+  title: `${t('page.social-medias')} - IceRayZer Portfolio`,
 });
 </script>
 
@@ -15,19 +15,13 @@ useHead({
     <div class="page">
       <h2>{{ $t(`page.social-medias`) }}</h2>
       <div class="content">
-        <div
-          class="social-media"
-          v-for="media in data['social-medias']"
-          :key="media.id"
-        >
+        <div class="social-media" v-for="media in data['social-medias']" :key="media.id">
           <span class="name">{{ media.name }}</span>
           <a :href="media.url" :title="media.name" target="_blank">
             <img :src="getSocialMediaLogo(media.id)" :alt="media.name" />
           </a>
           <span
-            v-if="
-              $t(`social-medias.${media.id}`) !== `social-medias.${media.id}`
-            "
+            v-if="$t(`social-medias.${media.id}`) !== `social-medias.${media.id}`"
             :title="$t(`social-medias.${media.id}`)"
           >
             {{ $t(`social-medias.${media.id}`) }}

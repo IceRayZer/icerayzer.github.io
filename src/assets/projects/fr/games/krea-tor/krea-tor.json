@@ -1,0 +1,8 @@
+{
+  "name": "Krea-Tor",
+  "engine": "construct2",
+  "type": "games",
+  "tags": ["team-project"],
+  "thumbnail": "krea-tor.jpg",
+  "summary": "Incarnez un gardien galactique et détruisez les Kréas avant qu'ils n'anéantissent votre monde."
+}

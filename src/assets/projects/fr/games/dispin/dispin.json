@@ -1,0 +1,8 @@
+{
+  "name": "Dispin",
+  "engine": "unity",
+  "type": "games",
+  "tags": ["gamejam", "team-project"],
+  "thumbnail": "https://imgur.com/NbWNqA4.gif",
+  "summary": "Contrôlez un dé, déclenchez des power-ups et dominez une boîte de nuit remplie d’ennemis."
+}

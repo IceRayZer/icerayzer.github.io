@@ -10,8 +10,8 @@
 
   "editor.preview": "Aperçu",
   "editor.edit": "Modifier",
-  "editor.export": "Export",
-  "editor.import": "Import",
+  "editor.export-infos": "Exporter les infos",
+  "editor.export-article": "Exporter l'article",
 
   "project.name": "Nom",
   "project.type": "Type",

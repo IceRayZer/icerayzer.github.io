@@ -1,38 +1,38 @@
 {
-    "language": "English",
+  "language": "English",
 
-    "page.about-me": "About me",
-    "page.social-medias": "Social media",
-    "page.404": "Page not found",
+  "page.about-me": "About me",
+  "page.social-medias": "Social media",
+  "page.404": "Page not found",
 
-    "projects.search.placeholder": "Search projects...",
-    "projects.showmore": "Show more",
+  "projects.search.placeholder": "Search projects...",
+  "projects.showmore": "Show more",
 
-    "editor.preview": "Preview",
-    "editor.edit": "Edit",
-    "editor.export": "Export",
-    "editor.import": "Import",
+  "editor.preview": "Preview",
+  "editor.edit": "Edit",
+  "editor.export-infos": "Export infos",
+  "editor.export-article": "Export article",
 
-    "project.name": "Name",
-    "project.type": "Type",
-    "project.engine": "Engine",
-    "project.tags": "Tags",
-    "project.thumbnail": "Thumbnail",
-    "project.summary": "Summary",
+  "project.name": "Name",
+  "project.type": "Type",
+  "project.engine": "Engine",
+  "project.tags": "Tags",
+  "project.thumbnail": "Thumbnail",
+  "project.summary": "Summary",
 
-    "social-medias.artstation": "3D Modelisation",
-    "social-medias.itchio": "Gamejams Projects",
-    "social-medias.twitch": "Games & Design",
-    "social-medias.youtube": "Games & Design",
+  "social-medias.artstation": "3D Modelisation",
+  "social-medias.itchio": "Gamejams Projects",
+  "social-medias.twitch": "Games & Design",
+  "social-medias.youtube": "Games & Design",
 
-    "type.games": "Games",
-    "type.level-design": "Level Design",
-    "type.ux-ui-design": "UX/UI Design",
+  "type.games": "Games",
+  "type.level-design": "Level Design",
+  "type.ux-ui-design": "UX/UI Design",
 
-    "engine.all": "All",
-    "engine.others": "Others",
+  "engine.all": "All",
+  "engine.others": "Others",
 
-    "tag.solo-project": "Solo project",
-    "tag.gamejam": "Gamejam",
-    "tag.team-project": "Team project"
+  "tag.solo-project": "Solo project",
+  "tag.gamejam": "Gamejam",
+  "tag.team-project": "Team project"
 }

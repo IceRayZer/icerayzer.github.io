@@ -1,59 +1,68 @@
 <script setup lang="ts">
-import { ref, toRaw } from "vue";
-import ProjectCard from "../components/ProjectCard.vue";
-import TextEditor from "../components/TextEditor.vue";
-import { data } from "../constants";
-import { Project } from "../models";
-import { mapToProject, toEngineList } from "../utils";
+import { ref, toRaw } from 'vue';
+import ProjectCard from '../components/ProjectCard.vue';
+import TextEditor from '../components/TextEditor.vue';
+import Article from '../components/Article.vue';
+import { data } from '../constants';
+import type { Project } from '../models';
+import { loadArticle, mapToProject, toEngineList } from '../utils';
+import { useRoute } from 'vue-router';
+import { useProjectsStore } from '../store';
+import { useI18n } from 'vue-i18n';
 
-const allEngines = [
-  ...toEngineList(data.engines),
-  ...toEngineList(data["others-engines"]),
-];
+const route = useRoute();
+const { locale } = useI18n();
 
-const project = ref<Project>({
-  id: "",
-  name: "",
-  engine: allEngines[0]?.id,
-  type: data.types[0],
-  tags: [],
+const allEngines = [...toEngineList(data.engines), ...toEngineList(data['others-engines'])];
+
+const store = useProjectsStore();
+
+const project = ref<Project>(
+  store.projects.find((p) => p.id === String(route.params.id) && p.lang === locale.value) ?? {
+    id: '',
+    lang: locale.value,
+    name: '',
+    engine: allEngines[0]?.id,
+    type: data.types[0],
+    tags: [],
+  }
+);
+
+const edit = ref(true);
+
+loadArticle(project.value).then((article) => {
+  if (project.value == null) return;
+
+  project.value.article = article;
 });
-const edit = ref<boolean>(true);
-const importFile = ref<HTMLInputElement | null>(null);
 
-function importProject() {
-  importFile.value?.click();
-}
-
-function onImportFile() {
-  if (importFile.value == null) return;
-
-  const file = importFile.value.files?.[0];
-  if (file == null) return;
-
-  const reader = new FileReader();
-  reader.onload = (e) => {
-    try {
-      const json = JSON.parse(String(e.target?.result ?? ""));
-      project.value = mapToProject(json);
-    } catch (err) {
-      console.error("Failed to import project:", err);
-    }
-  };
-  reader.readAsText(file, "utf8");
-  importFile.value.value = "";
-}
-
-function exportProject() {
+function exportInfos() {
   if (project.value == null) return;
 
   const proj: Project = mapToProject(structuredClone(toRaw(project.value)));
+  delete proj.article;
 
-  const a = document.createElement("a");
+  const a = document.createElement('a');
   a.download = proj.id;
   const url = URL.createObjectURL(
     new Blob([JSON.stringify(proj)], {
-      type: "application/json",
+      type: 'application/json',
+    })
+  );
+  a.href = url;
+  a.click();
+}
+
+function exportArticle() {
+  if (project.value.article == null) return;
+
+  const article = project.value.article;
+
+  const a = document.createElement('a');
+  a.download = project.value.id || locale.value;
+  const url = URL.createObjectURL(
+    new Blob([String(article)], {
+      type: 'text/plain',
     })
   );
   a.href = url;
@@ -78,15 +87,15 @@ function switchTag(tag: string) {
 
 <template>
   <main>
-    <ProjectCard class="card" :project="project" />
+    <ProjectCard class="card" :project="project" :type="String(route.params.type)" />
     <div class="page" v-show="edit">
       <div class="content editor">
         <label class="input-group">
-          <span>{{ $t("project.name") }}</span>
+          <span>{{ $t('project.name') }}</span>
           <input v-model="project.name" type="text" />
         </label>
         <label class="input-group">
-          <span>{{ $t("project.type") }}</span>
+          <span>{{ $t('project.type') }}</span>
           <select v-model="project.type">
             <option v-for="t in data.types" :key="t" :value="t">
               {{ $t(`type.${t}`) }}
@@ -94,7 +103,7 @@ function switchTag(tag: string) {
           </select>
         </label>
         <div class="input-group">
-          <span>{{ $t("project.tags") }}</span>
+          <span>{{ $t('project.tags') }}</span>
           <div class="tags">
             <span
               class="tag"
@@ -108,23 +117,19 @@ function switchTag(tag: string) {
           </div>
         </div>
         <label class="input-group">
-          <span>{{ $t("project.engine") }}</span>
+          <span>{{ $t('project.engine') }}</span>
           <select v-model="project.engine">
-            <option
-              v-for="engine in allEngines"
-              :key="engine.id"
-              :value="engine.id"
-            >
+            <option v-for="engine in allEngines" :key="engine.id" :value="engine.id">
               {{ engine.name }}
             </option>
           </select>
         </label>
         <label class="input-group">
-          <span>{{ $t("project.thumbnail") }}</span>
+          <span>{{ $t('project.thumbnail') }}</span>
           <input v-model="project.thumbnail" type="text" />
         </label>
         <label class="input-group">
-          <span>{{ $t("project.summary") }}</span>
+          <span>{{ $t('project.summary') }}</span>
           <input v-model="project.summary" type="text" />
         </label>
         <div class="text-editor">
@@ -141,27 +146,25 @@ function switchTag(tag: string) {
     />
     <div class="actions">
       <button class="primary" type="button" @click="switchPreview">
-        {{ edit ? $t("editor.preview") : $t("editor.edit") }}
+        {{ edit ? $t('editor.preview') : $t('editor.edit') }}
       </button>
-      <button class="primary" type="button" @click="importProject">
-        {{ $t("editor.import") }}
+      <button class="primary" type="button" @click="exportInfos">
+        {{ $t('editor.export-infos') }}
       </button>
-      <button class="primary" type="button" @click="exportProject">
-        {{ $t("editor.export") }}
+      <button
+        v-if="project.article != null && project.article !== ''"
+        class="primary"
+        type="button"
+        @click="exportArticle"
+      >
+        {{ $t('editor.export-article') }}
       </button>
     </div>
-    <input
-      id="import"
-      ref="importFile"
-      type="file"
-      accept="application/json"
-      @change="onImportFile"
-    />
   </main>
 </template>
 
 <style scoped lang="less">
-@import "../colors.less";
+@import '../colors.less';
 
 main {
   display: flex;
@@ -221,7 +224,7 @@ main {
 </style>
 
 <style lang="less">
-@import "../colors.less";
+@import '../colors.less';
 
 .ql-editor {
   background-color: @background-color-light;

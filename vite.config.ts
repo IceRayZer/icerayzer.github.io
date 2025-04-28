@@ -1,29 +1,13 @@
-import Vue from '@vitejs/plugin-vue'
-import Components from 'unplugin-vue-components/vite'
-import type { UserConfig } from 'vite'
-import Pages from 'vite-plugin-pages'
-import svgLoader from 'vite-svg-loader'
+import Vue from '@vitejs/plugin-vue';
+import svgLoader from 'vite-svg-loader';
+import { defineConfig } from 'vite';
 
-const config: UserConfig = {
+export default defineConfig({
   build: {
-    target: 'esnext'
+    target: 'esnext',
   },
   plugins: [
-    Vue({
-      include: [/\.vue$/],
-    }),
-    Pages({
-      extensions: ['vue'],
-      extendRoute: (route) => {
-        if (route.path === '/') return { ...route, redirect: '/games' }
-        return route
-      },
-    }),
-    Components({
-      extensions: ['vue'],
-      // allow auto import and register components used in markdown
-      include: [/\.vue$/, /\.vue\?vue/],
-    }),
+    Vue(),
     svgLoader({
       svgoConfig: {
         multipass: true,
@@ -38,12 +22,6 @@ const config: UserConfig = {
           },
         ],
       },
-    })
+    }),
   ],
-  ssgOptions: {
-    script: 'async',
-    formatting: 'prettify',
-  },
-}
-
-export default config
+});

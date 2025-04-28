@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { getEngineLogo, getEngineName } from "../utils";
+import { getEngineLogo, getEngineName } from '../utils';
 
 interface ArticleProps {
   title: string;
@@ -19,14 +19,9 @@ withDefaults(defineProps<ArticleProps>(), {
     <div class="content ql-editor">
       <div class="infos">
         <div class="tags">
-          <span
-            ref="tags"
-            class="tag"
-            v-for="tag in tags"
-            :key="tag"
-            :title="$t(`tag.${tag}`)"
-            >{{ $t(`tag.${tag}`) }}</span
-          >
+          <span ref="tags" class="tag" v-for="tag in tags" :key="tag" :title="$t(`tag.${tag}`)">{{
+            $t(`tag.${tag}`)
+          }}</span>
         </div>
         <img
           v-if="$props.engine != null"
