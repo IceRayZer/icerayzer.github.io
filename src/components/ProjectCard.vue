@@ -104,6 +104,7 @@ function clickOnCard() {
     justify-content: center;
     align-items: center;
     text-align: center;
+    white-space: nowrap;
     font-size: 40px;
     font-weight: 900;
     transform: translate(-50%, -50%);
