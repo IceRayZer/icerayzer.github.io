@@ -1,100 +1,110 @@
 <script setup lang="ts">
-import { onBeforeUnmount, ref, watch } from "vue";
-import { RouterLink, useRoute } from "vue-router";
-import MenuIcon from "../assets/menu.svg";
-import SocialsIcon from "../assets/socials.svg";
-import { data } from "../constants";
-import { useProjectsStore } from "../store";
+import { ref, watch } from 'vue';
+import { RouterLink } from 'vue-router';
+import MenuIcon from '../assets/menu.svg';
+import SocialsIcon from '../assets/socials.svg';
+import Language from './Language.vue';
+import { data } from '../constants';
+import { useProjectsStore } from '../store';
+import { useResizeWindow } from '../utils';
 
-const route = useRoute();
+type NavbarSize = 'large' | 'medium' | 'small' | 'compact';
+
 const store = useProjectsStore();
 
-const search = ref("");
-const mobile = ref();
+const search = ref('');
+const size = ref<NavbarSize>('large');
 const open = ref(false);
 
 watch(search, () => {
-  store.setSearch(search.value ?? "");
+  store.setSearch(search.value ?? '');
 });
 
-function toggleMenu() {
-  open.value = !open.value;
+function toggleMenu(value?: boolean) {
+  open.value = value ?? !open.value;
 }
 
-if (typeof window !== "undefined") {
-  window.addEventListener("resize", checkMobile);
-
-  onBeforeUnmount(() => {
-    window.removeEventListener("resize", checkMobile);
-  });
-
-  function checkMobile() {
-    mobile.value = window.innerWidth <= 1280;
-  }
-
-  checkMobile();
-}
+useResizeWindow(() => {
+  if (window.innerWidth > 1280) size.value = 'large';
+  else if (window.innerWidth > 768) size.value = 'medium';
+  else if (window.innerWidth > 480) size.value = 'small';
+  else size.value = 'compact';
+});
 </script>
 
 <template>
-  <nav :class="{ mobile }">
+  <nav :class="size">
     <div class="navbar-left">
       <RouterLink class="logo" to="/">
         <img src="../assets/logo.png" alt="Logo" />
       </RouterLink>
       <input
+        v-if="size !== 'compact'"
         class="search"
         type="text"
         v-model="search"
         :placeholder="$t('projects.search.placeholder')"
       />
-      <template v-if="!mobile">
+      <template v-if="size === 'large'">
         <div class="separator"></div>
         <div class="types">
-          <RouterLink
-            class="link"
-            :class="{ active: route.path.startsWith('/' + t) }"
-            v-for="t in data.types"
-            :key="t"
-            :to="'/' + t"
-          >
+          <RouterLink class="link" v-for="t in data.types" :key="t" :to="'/' + t">
             {{ $t(`type.${t}`) }}
           </RouterLink>
         </div>
       </template>
     </div>
     <div class="navbar-right">
-      <RouterLink to="/about-me">
-        <button class="profile" type="button" :title="$t('page.about-me')">
-          <img src="../assets/user_profile.jpg" alt="IceRayZer" />
-          <span v-if="!mobile">IceRayZer</span>
-        </button>
-      </RouterLink>
-      <RouterLink to="/social-medias" :title="$t('page.social-medias')">
-        <button type="button"><SocialsIcon /></button>
-      </RouterLink>
-      <Language />
-      <button v-if="mobile" type="button" @click="toggleMenu">
+      <template v-if="size === 'large' || size === 'medium'">
+        <RouterLink to="/about-me">
+          <button class="profile" type="button" :title="$t('page.about-me')">
+            <img src="../assets/user_profile.jpg" alt="IceRayZer" />
+            <span v-if="size === 'large'">IceRayZer</span>
+          </button>
+        </RouterLink>
+        <RouterLink to="/social-medias" :title="$t('page.social-medias')">
+          <button type="button"><SocialsIcon /></button>
+        </RouterLink>
+        <Language />
+      </template>
+      <button v-if="size !== 'large'" type="button" @click="() => toggleMenu()">
         <MenuIcon />
       </button>
     </div>
-    <div class="menu" :class="{ open }" v-if="mobile">
-      <RouterLink
-        class="link"
-        :class="{ active: route.path.startsWith('/' + t) }"
-        v-for="t in data.types"
-        :key="t"
-        :to="'/' + t"
-      >
-        {{ $t(`type.${t}`) }}
-      </RouterLink>
-      <div class="fill"></div>
+    <div class="menu" :class="{ open }" v-if="size !== 'large'">
+      <template v-if="size === 'compact'">
+        <div class="menu-item">
+          <input class="search" type="text" v-model="search" :placeholder="$t('projects.search.placeholder')" />
+        </div>
+        <div class="menu-item">
+          <div class="separator"></div>
+        </div>
+      </template>
+      <div class="menu-item">
+        <div class="link-container" v-for="t in data.types" :key="t">
+          <RouterLink class="link" :to="'/' + t">
+            {{ $t(`type.${t}`) }}
+          </RouterLink>
+        </div>
+      </div>
+      <div v-if="size !== 'medium'" class="menu-bottom">
+        <RouterLink to="/about-me">
+          <button class="profile" type="button" :title="$t('page.about-me')">
+            <img src="../assets/user_profile.jpg" alt="IceRayZer" />
+          </button>
+        </RouterLink>
+        <RouterLink to="/social-medias" :title="$t('page.social-medias')">
+          <button type="button"><SocialsIcon /></button>
+        </RouterLink>
+        <Language />
+      </div>
     </div>
+    <div v-if="open" class="menu-backdrop" @click="() => toggleMenu(false)"></div>
   </nav>
 </template>
 
 <style scoped lang="less">
-@import "../colors.less";
+@import '../colors.less';
 
 nav {
   height: 96px;
@@ -104,6 +114,7 @@ nav {
   align-items: center;
   flex-shrink: 0;
   background-color: @background-color-light;
+  z-index: 10;
 
   .navbar-left,
   .navbar-right {
@@ -127,7 +138,6 @@ nav {
   .search {
     width: 100%;
     min-width: 256px;
-    max-width: 100%;
   }
 
   .separator {
@@ -164,14 +174,14 @@ nav {
     white-space: nowrap;
     color: white;
 
-    &.active {
+    &.router-link-active {
       position: relative;
       background: linear-gradient(to left, @primary-color, @secondary-color);
       background-clip: text;
       color: transparent;
 
       &::after {
-        content: "";
+        content: '';
         width: 100%;
         height: 2px;
         position: absolute;
@@ -182,7 +192,18 @@ nav {
     }
   }
 
-  &.mobile {
+  &.medium,
+  &.small,
+  &.compact {
+    .search {
+      width: fit-content;
+      min-width: fit-content;
+    }
+
+    .navbar-right {
+      width: fit-content;
+    }
+
     .profile {
       padding: 0;
 
@@ -194,39 +215,81 @@ nav {
 
   .menu {
     z-index: 10;
-    height: 100%;
+    height: calc(100% - 96px);
     position: fixed;
     top: 96px;
     right: 0;
     display: flex;
     flex-direction: column;
-    background-color: @background-color-lighter;
+    gap: 16px;
+    background-color: @background-color-light;
     transition: transform 300ms ease-in-out;
 
     &:not(.open) {
       transform: translateX(100%);
     }
 
-    .link {
+    .menu-item {
       height: fit-content;
-      justify-content: center;
-      margin: 0;
-      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
-      &::after {
-        content: none;
+      .link-container {
+        width: 100%;
+        background-color: @background-color-lighter;
+
+        .link {
+          height: fit-content;
+          justify-content: center;
+          margin: 0;
+          padding: 16px;
+          font-size: 20px;
+
+          &::after {
+            content: none;
+          }
+
+          &:not(:first-child) {
+            border-top: 4px solid @background-color-light;
+          }
+        }
       }
 
-      &:not(:first-child) {
-        border-top: 4px solid @background-color-light;
+      .search {
+        border-radius: 0;
+      }
+
+      .separator {
+        width: 128px;
+        height: 4px;
       }
     }
 
-    .fill {
+    .menu-bottom {
       width: 100%;
-      height: 100%;
-      background-color: @background-color-light;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 16px;
     }
+  }
+
+  &.compact .menu {
+    height: calc(100% - 176px);
+  }
+
+  .menu-backdrop {
+    width: 100%;
+    height: calc(100% - 96px);
+    position: absolute;
+    left: 0;
+    top: 96px;
+    z-index: 9;
   }
 }
 </style>

@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { computed } from "vue";
-import { data } from "../constants";
-import { useProjectsStore } from "../store";
-import { getEngineLogo, toEngineList } from "../utils";
+import { computed } from 'vue';
+import { data } from '../constants';
+import { useProjectsStore } from '../store';
+import { getEngineLogo, toEngineList } from '../utils';
 
 interface SidebarProps {
   engines: string[];
@@ -16,20 +16,13 @@ function isActive(engine: string) {
 }
 
 const engines = computed(() =>
-  [
-    ...toEngineList(data.engines),
-    ...toEngineList(data["others-engines"]),
-  ].filter((e) => props.engines.includes(e.id))
+  [...toEngineList(data.engines), ...toEngineList(data['others-engines'])].filter((e) => props.engines.includes(e.id))
 );
 
 const hasOthersEngines = computed(
   () =>
-    engines.value.filter(
-      (engine) =>
-        toEngineList(data["others-engines"]).findIndex(
-          (e) => e.id === engine.id
-        ) > -1
-    ).length > 0
+    engines.value.filter((engine) => toEngineList(data['others-engines']).findIndex((e) => e.id === engine.id) > -1)
+      .length > 0
 );
 </script>
 
@@ -41,7 +34,7 @@ const hasOthersEngines = computed(
       :title="$t('engine.all')"
       @click="() => store.setEngine('all')"
     >
-      <span>{{ $t("engine.all") }}</span>
+      <span>{{ $t('engine.all') }}</span>
     </button>
 
     <button
@@ -68,10 +61,10 @@ const hasOthersEngines = computed(
 </template>
 
 <style scoped lang="less">
-@import "../colors.less";
+@import '../colors.less';
 
 aside {
-  width: 96px;
+  min-width: 96px;
   height: 100%;
   position: fixed;
   display: flex;
@@ -88,15 +81,11 @@ aside {
     padding: 12px;
     border: 1px solid @background-color;
     border-radius: 8px;
-    background: linear-gradient(
-      to top,
-      @background-color-dark,
-      @background-color
-    );
-    box-shadow: 2px 4px8px #00000033;
+    background: linear-gradient(to top, @background-color-dark, @background-color);
+    box-shadow: 2px 4px 8px #00000033;
 
     &.active::before {
-      content: "";
+      content: '';
       position: absolute;
       border-radius: 8px;
       padding: 2px;
@@ -114,11 +103,7 @@ aside {
     }
 
     &:active {
-      background: linear-gradient(
-        to top,
-        @background-color,
-        @background-color-dark
-      );
+      background: linear-gradient(to top, @background-color, @background-color-dark);
     }
   }
 }

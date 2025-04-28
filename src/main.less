@@ -1,7 +1,7 @@
-@import "./colors.less";
+@import './colors.less';
 
 * {
-  font-family: "Montserrat";
+  font-family: 'Montserrat';
   font-size: 16px;
 }
 
@@ -149,6 +149,30 @@ main {
   min-height: 100%;
   position: relative;
   overflow-y: auto;
+
+  .project-list {
+    margin-left: 96px;
+  }
+
+  &.compact {
+    aside {
+      width: 100%;
+      height: fit-content;
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      flex-direction: row;
+      justify-content: space-evenly;
+      gap: 0;
+      padding: 8px;
+      z-index: 10;
+    }
+
+    .project-list {
+      margin-bottom: 196px;
+      margin-left: 0;
+    }
+  }
 }
 
 .page {
@@ -174,12 +198,12 @@ main {
     text-align: justify;
 
     .infos {
-      position: absolute;
-      top: 24px;
-      right: 24px;
+      top: 10px;
+      right: 10px;
       display: flex;
       justify-content: end;
       align-items: center;
+      margin: -48px -48px 48px 0;
       gap: 32px;
 
       .logo {
@@ -198,6 +222,10 @@ main {
   aspect-ratio: 16 / 9;
 }
 
+.ql-editor > * {
+  cursor: auto !important;
+}
+
 @media only screen and (max-width: 1280px) {
   h1 {
     font-size: 48px;
@@ -205,6 +233,10 @@ main {
 
   .page .content {
     padding: 32px;
+
+    .infos {
+      margin: -16px -16px 32px 0;
+    }
   }
 }
 

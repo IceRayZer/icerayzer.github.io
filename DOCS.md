@@ -19,9 +19,10 @@ Data are declared in `src/assets/data.json`.
 
 To add a language, there are 3 steps:
 
-1. Duplicate `src/assets/locales/en.json` and rename it to `<CODE>.json`.
-2. Translate the values in the language.
-3. Go to [SVG Repo](https://www.svgrepo.com/vectors/flag/multicolor/), export the language flag as SVG then rename it and move it to `src/assets/locales/<CODE>.json`.
+1. Add an entry in `languages` from `src/assets/data.json`.
+2. Duplicate `src/assets/locales/en.json` and rename it to `<CODE>.json`.
+3. Translate the values in the language.
+4. Go to [SVG Repo](https://www.svgrepo.com/vectors/flag/multicolor/), export the language flag as SVG then rename it and move it to `src/assets/locales/<CODE>.json`.
 
 ### Types
 
@@ -31,7 +32,7 @@ Types of projects appear in the navbar as categories of projects.
 
 To add a game engine, there are 2 steps:
 
-1. Add an entry in `engines` for a main game engine, or `othes-engines` for secondary game engines, from the `data.json` with: `"ENGINE_ID": "ENGINE_NAME"`.
+1. Add an entry in `engines` for a main game engine, or `othes-engines` for secondary game engines, from the `src/assets/data.json` with: `"ENGINE_ID": "ENGINE_NAME"`.
 2. Download the game engine logo, in white transparent as PNG and of resolution 128x128, and put it in `src/assets/engines/<GAME_ENGINE_ID>.png`.
 
 Games engines are located in the sidebar for projects list to filter projects.
@@ -42,13 +43,13 @@ Tags help describing and sorting projects.
 
 ### About me
 
-To edit the "about me" page, go to the [editor](#Project-editor) and use only the text editor. Then export the data, open it and copy the content of `article`. Finally paste that content into `about-me` in the `data.json`.
+To edit the "about me" page, go to the [editor](#Project-editor) and use only the text editor. Then export the data. Finally move that file into `public/about-me/` in the `src/assets/data.json`.
 
 ### Social medias
 
 To add a social media, there are 2 steps:
 
-1. Add an entry in the array `socials-medias` from the `data.json` with:
+1. Add an entry in the array `socials-medias` from the `src/assets/data.json` with:
    - id: the name of the social network, in lowercase and hyphens [-] instead of spaces [ ]
    - name: the name of the social network
    - url: your social media url
@@ -67,19 +68,21 @@ A project contains:
 - tags: some [tags](#Tags) to describe the project [project card only]
 - thumbnail: a thumbnail for the project [project card only]
 - summary: a short description of the project [project card only]
-- article: an [article](#Article) for the project [article only]
 
 ### Project editor
 
-Go to `https://<USERNAME>.github.io/editor` to access the projects editor.
+You can access the editor in 2 ways:
+
+- Going to `https://<USERNAME>.github.io/editor` OR `https://<USERNAME>.github.io/<PROJECT_TYPE>/<PROJECT_ID>/editor`.
+- Using a special keybind shortcut: `CTRL + ALT + SHIFT + E`.
 
 There is a project card preview, at the top of the form, to help visualize how it will look in projects list.
 
 There are 3 buttons at the bottom right:
 
-- Preview / Edit: switch between preview mode and edit mode of the project form
-- Import: import a previous [project data](#Project) to edit it
-- Export: export the current editing [project data](#Project)
+- Preview / Edit: switch between preview mode and edit mode of the project form.
+- Export infos: export the current editing [project data](#Project).
+- Export article: export the current editing [article](#Article).
 
 ## Article
 

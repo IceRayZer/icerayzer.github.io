@@ -1,17 +1,34 @@
 <script setup lang="ts">
-import { useHead } from "@unhead/vue";
-import { useI18n } from "vue-i18n";
-import Article from "../components/Article.vue";
-import { data } from "../constants";
+import { useI18n } from 'vue-i18n';
+import Article from '../components/Article.vue';
+import { useHead } from '@unhead/vue';
+import { ref, watch } from 'vue';
 
-const { t } = useI18n();
+const article = ref('');
+
+const { t, locale } = useI18n();
 useHead({
-  title: `${t("page.about-me")} - IceRayZer Portfolio`,
+  title: `${t('page.about-me')} - IceRayZer Portfolio`,
 });
+
+watch(locale, () => {
+  loadText();
+});
+
+loadText();
+
+function loadText() {
+  fetch(`/about-me/${locale.value}.txt`).then((res) => {
+    if (res.headers.get('Content-Type') !== 'text/plain') return;
+    res.text().then((text) => {
+      article.value = text;
+    });
+  });
+}
 </script>
 
 <template>
   <main>
-    <Article :title="$t('page.about-me')" :article="data['about-me']" />
+    <Article :title="$t('page.about-me')" :article="article" />
   </main>
 </template>

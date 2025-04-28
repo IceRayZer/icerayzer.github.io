@@ -1,21 +1,21 @@
-
 export declare interface Data {
-  types: string[];
-  engines: Engines;
-  "others-engines": Engines;
-  tags: string[];
-  "about-me": string;
-  "social-medias": SocialMedia[];
+  'languages': string[];
+  'types': string[];
+  'engines': Engines;
+  'others-engines': Engines;
+  'tags': string[];
+  'social-medias': SocialMedia[];
 }
 
 export declare type ProjectType = string;
 
 export declare interface TypeRoute {
-  type: ProjectType
+  type: ProjectType;
 }
 
 export declare interface Project {
   id: string;
+  lang: string;
   name: string;
   engine: string;
   type: ProjectType;
@@ -25,7 +25,7 @@ export declare interface Project {
   article?: string;
 }
 
-export declare type Engines = Record<string, string>
+export declare type Engines = Record<string, string>;
 
 export declare interface Engine {
   id: string;
@@ -38,4 +38,4 @@ export declare interface SocialMedia {
   url: string;
 }
 
-export declare type ArticleMode = 'read' | 'edit' | 'preview'
+export declare type ArticleMode = 'read' | 'edit' | 'preview';
